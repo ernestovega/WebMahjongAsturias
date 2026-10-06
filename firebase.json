@@ -1,0 +1,27 @@
+{
+  "hosting": {
+    "public": "composeApp/build/dist/wasmJs/productionExecutable",
+    "predeploy": [
+      "./gradlew :composeApp:wasmJsBrowserDistribution"
+    ],
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ],
+    "headers": [
+      {
+        "source": "**/*.@(js|wasm|html)",
+        "headers": [
+          { "key": "Cache-Control", "value": "no-cache" }
+        ]
+      }
+    ]
+  }
+}
