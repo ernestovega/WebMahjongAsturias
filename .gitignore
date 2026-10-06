@@ -49,3 +49,10 @@ build
 
 # Ignore Kotlin plugin data
 .kotlin
+
+# Agent skills (tools only, not part of the site). .claude/skills links to .agents
+.agents/
+.claude/skills/
+
+# macOS
+.DS_Store
