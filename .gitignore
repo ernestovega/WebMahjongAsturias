@@ -53,6 +53,7 @@ build
 # Agent skills (tools only, not part of the site). .claude/skills links to .agents
 .agents/
 .claude/skills/
+skills-lock.json
 
 # macOS
 .DS_Store
