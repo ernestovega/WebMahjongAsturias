@@ -71,7 +71,7 @@ private const val EMA_URL = "https://mahjong-europe.org"
 
 private const val EMA_PROFILE_URL = "http://mahjong-europe.org/ranking/Players/10990039.html"
 
-/** Edge color of logo.png (most common pixel value). Keeps the logo border invisible in light mode. */
+/** Light page background. Also the background of the PNG icons and og-image.png. */
 private val LogoWhite = Color(0xFFFDFDFD)
 
 private const val CONTACT_EMAIL = "mahjongasturias@gmail.com"
@@ -237,8 +237,7 @@ private fun Header(t: Strings) {
         Image(
             painter = painterResource(Res.drawable.logo),
             contentDescription = t.logoDescription,
-            modifier = Modifier.fillMaxWidth().widthIn(max = 480.dp).aspectRatio(1f)
-                .clip(RoundedCornerShape(16.dp)),
+            modifier = Modifier.fillMaxWidth().widthIn(max = 480.dp).aspectRatio(720f / 727f),
         )
     }
 }
