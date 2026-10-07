@@ -1,27 +1,44 @@
 <p align="center">
-  <img src="https://www.mahjongasturias.es/composeResources/es.mahjongasturias.web.resources/drawable/logo.png" alt="Asociación de Mahjong de Asturias" width="420">
+  <img src="https://www.mahjongasturias.es/img/logo.png" alt="Asociación de Mahjong de Asturias" width="420">
 </p>
 
 # Mahjong Asturias Website
 
 https://www.mahjongasturias.es
 
-Website of the Asturian Mahjong Association. 
-Made in Kotlin Multiplatform with Compose, target Wasm only.
+Website of the Asturian Mahjong Association.
+Static HTML and CSS in the `site/` folder. Spanish at `/`, English at `/en/` and Asturian at `/ast/`.
+
+## Pages
+
+| Spanish | English | Asturian | Content |
+| --- | --- | --- | --- |
+| `/` | `/en/` | `/ast/` | Home |
+| `/jugar/` | `/en/play/` | `/ast/xugar/` | Games, classes, demonstrations |
+| `/aprender/` | `/en/learn/` | `/ast/deprender/` | Rules, MCR and Riichi, books, exercises |
+| `/online/` | `/en/online/` | `/ast/en-llinia/` | Online platforms and Spanish League |
+| `/federacion/` | `/en/federation/` | `/ast/federacion/` | Federation, League, clubs |
+| `/contacto/` | `/en/contact/` | `/ast/contautu/` | About us, WhatsApp, Instagram, email |
+
+Each page is a folder with an `index.html` file. Edit the three language versions of a page together.
 
 ## Commands
 
-- Run in development: `./gradlew :composeApp:wasmJsBrowserDevelopmentRun`
-- Build for production: `./gradlew :composeApp:wasmJsBrowserDistribution`
+- Run locally: `python3 -m http.server 8765 --directory site` and open http://localhost:8765
 - Deploy to Firebase Hosting: `firebase deploy --only hosting`
 
-The production build goes to `composeApp/build/dist/wasmJs/productionExecutable`.
+`firebase.json` publishes the `site/` folder. It does not run Gradle.
+
+## Folders
+
+- `site/` is the website that Firebase publishes.
+- `composeApp/` is the old Kotlin Multiplatform (Wasm) version of the site. It does not take part in the deploy. Keep it if you want to add Wasm pages later. Build the Wasm output into a subfolder of `site/`, for example `site/app/`.
 
 ## Logo URLs
 
 | Preview | Description and URL |
 | :---: | --- |
-| <img src="https://www.mahjongasturias.es/composeResources/es.mahjongasturias.web.resources/drawable/logo.png" width="80"> | Page logo (720x728 px, transparent background)<br>`https://www.mahjongasturias.es/composeResources/es.mahjongasturias.web.resources/drawable/logo.png` |
+| <img src="https://www.mahjongasturias.es/img/logo.png" width="80"> | Page logo (720x728 px, transparent background)<br>`https://www.mahjongasturias.es/img/logo.png` |
 | <img src="https://www.mahjongasturias.es/og-image.png" width="120"> | Link preview image (1200x630 px, background `#FDFDFD`)<br>`https://www.mahjongasturias.es/og-image.png` |
 | <img src="https://www.mahjongasturias.es/favicon.png" width="32"> | Favicon (32x32 px, transparent background)<br>`https://www.mahjongasturias.es/favicon.png` |
 | <img src="https://www.mahjongasturias.es/favicon-48.png" width="48"> | Favicon (48x48 px, transparent background)<br>`https://www.mahjongasturias.es/favicon-48.png` |
@@ -29,4 +46,4 @@ The production build goes to `composeApp/build/dist/wasmJs/productionExecutable`
 | <img src="https://www.mahjongasturias.es/icon-512.png" width="48"> | App icon (512x512 px, background `#FDFDFD`)<br>`https://www.mahjongasturias.es/icon-512.png` |
 | <img src="https://www.mahjongasturias.es/apple-touch-icon.png" width="48"> | Apple touch icon (180x180 px, background `#FDFDFD`)<br>`https://www.mahjongasturias.es/apple-touch-icon.png` |
 
-Compose generates the page logo path. It can change if the package name or the build changes.
+The old logo URL (`/composeResources/.../logo.png`) stops working after the next deploy.

@@ -1,25 +1,24 @@
 {
   "hosting": {
-    "public": "composeApp/build/dist/wasmJs/productionExecutable",
-    "predeploy": [
-      "./gradlew :composeApp:wasmJsBrowserDistribution"
-    ],
+    "public": "site",
+    "cleanUrls": true,
+    "trailingSlash": true,
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
     ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ],
     "headers": [
       {
-        "source": "**/*.@(js|wasm|html)",
+        "source": "**/*.@(html|js|css|xml|txt|webmanifest)",
         "headers": [
           { "key": "Cache-Control", "value": "no-cache" }
+        ]
+      },
+      {
+        "source": "**/*.@(png|ttf|jpg|svg)",
+        "headers": [
+          { "key": "Cache-Control", "value": "public, max-age=604800" }
         ]
       }
     ]

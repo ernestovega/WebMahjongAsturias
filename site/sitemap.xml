@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://www.mahjongasturias.es/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mahjongasturias.es/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mahjongasturias.es/en/"/>
+    <xhtml:link rel="alternate" hreflang="ast" href="https://www.mahjongasturias.es/ast/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mahjongasturias.es/"/>
+  </url>
+  <url>
+    <loc>https://www.mahjongasturias.es/en/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mahjongasturias.es/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mahjongasturias.es/en/"/>
+    <xhtml:link rel="alternate" hreflang="ast" href="https://www.mahjongasturias.es/ast/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mahjongasturias.es/"/>
+  </url>
+  <url>
+    <loc>https://www.mahjongasturias.es/ast/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mahjongasturias.es/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mahjongasturias.es/en/"/>
+    <xhtml:link rel="alternate" hreflang="ast" href="https://www.mahjongasturias.es/ast/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mahjongasturias.es/"/>
+  </url>
+  <url>
+    <loc>https://www.mahjongasturias.es/jugar/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mahjongasturias.es/jugar/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mahjongasturias.es/en/play/"/>
+    <xhtml:link rel="alternate" hreflang="ast" href="https://www.mahjongasturias.es/ast/xugar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mahjongasturias.es/jugar/"/>
+  </url>
+  <url>
+    <loc>https://www.mahjongasturias.es/en/play/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mahjongasturias.es/jugar/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mahjongasturias.es/en/play/"/>
+    <xhtml:link rel="alternate" hreflang="ast" href="https://www.mahjongasturias.es/ast/xugar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mahjongasturias.es/jugar/"/>
+  </url>
+  <url>
+    <loc>https://www.mahjongasturias.es/ast/xugar/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mahjongasturias.es/jugar/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mahjongasturias.es/en/play/"/>
+    <xhtml:link rel="alternate" hreflang="ast" href="https://www.mahjongasturias.es/ast/xugar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mahjongasturias.es/jugar/"/>
+  </url>
+  <url>
+    <loc>https://www.mahjongasturias.es/aprender/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mahjongasturias.es/aprender/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mahjongasturias.es/en/learn/"/>
+    <xhtml:link rel="alternate" hreflang="ast" href="https://www.mahjongasturias.es/ast/deprender/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mahjongasturias.es/aprender/"/>
+  </url>
+  <url>
+    <loc>https://www.mahjongasturias.es/en/learn/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mahjongasturias.es/aprender/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mahjongasturias.es/en/learn/"/>
+    <xhtml:link rel="alternate" hreflang="ast" href="https://www.mahjongasturias.es/ast/deprender/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mahjongasturias.es/aprender/"/>
+  </url>
+  <url>
+    <loc>https://www.mahjongasturias.es/ast/deprender/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mahjongasturias.es/aprender/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mahjongasturias.es/en/learn/"/>
+    <xhtml:link rel="alternate" hreflang="ast" href="https://www.mahjongasturias.es/ast/deprender/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mahjongasturias.es/aprender/"/>
+  </url>
+  <url>
+    <loc>https://www.mahjongasturias.es/online/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mahjongasturias.es/online/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mahjongasturias.es/en/online/"/>
+    <xhtml:link rel="alternate" hreflang="ast" href="https://www.mahjongasturias.es/ast/en-llinia/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mahjongasturias.es/online/"/>
+  </url>
+  <url>
+    <loc>https://www.mahjongasturias.es/en/online/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mahjongasturias.es/online/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mahjongasturias.es/en/online/"/>
+    <xhtml:link rel="alternate" hreflang="ast" href="https://www.mahjongasturias.es/ast/en-llinia/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mahjongasturias.es/online/"/>
+  </url>
+  <url>
+    <loc>https://www.mahjongasturias.es/ast/en-llinia/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mahjongasturias.es/online/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mahjongasturias.es/en/online/"/>
+    <xhtml:link rel="alternate" hreflang="ast" href="https://www.mahjongasturias.es/ast/en-llinia/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mahjongasturias.es/online/"/>
+  </url>
+  <url>
+    <loc>https://www.mahjongasturias.es/federacion/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mahjongasturias.es/federacion/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mahjongasturias.es/en/federation/"/>
+    <xhtml:link rel="alternate" hreflang="ast" href="https://www.mahjongasturias.es/ast/federacion/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mahjongasturias.es/federacion/"/>
+  </url>
+  <url>
+    <loc>https://www.mahjongasturias.es/en/federation/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mahjongasturias.es/federacion/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mahjongasturias.es/en/federation/"/>
+    <xhtml:link rel="alternate" hreflang="ast" href="https://www.mahjongasturias.es/ast/federacion/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mahjongasturias.es/federacion/"/>
+  </url>
+  <url>
+    <loc>https://www.mahjongasturias.es/ast/federacion/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mahjongasturias.es/federacion/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mahjongasturias.es/en/federation/"/>
+    <xhtml:link rel="alternate" hreflang="ast" href="https://www.mahjongasturias.es/ast/federacion/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mahjongasturias.es/federacion/"/>
+  </url>
+  <url>
+    <loc>https://www.mahjongasturias.es/contacto/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mahjongasturias.es/contacto/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mahjongasturias.es/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="ast" href="https://www.mahjongasturias.es/ast/contautu/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mahjongasturias.es/contacto/"/>
+  </url>
+  <url>
+    <loc>https://www.mahjongasturias.es/en/contact/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mahjongasturias.es/contacto/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mahjongasturias.es/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="ast" href="https://www.mahjongasturias.es/ast/contautu/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mahjongasturias.es/contacto/"/>
+  </url>
+  <url>
+    <loc>https://www.mahjongasturias.es/ast/contautu/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mahjongasturias.es/contacto/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mahjongasturias.es/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="ast" href="https://www.mahjongasturias.es/ast/contautu/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mahjongasturias.es/contacto/"/>
+  </url>
+</urlset>
