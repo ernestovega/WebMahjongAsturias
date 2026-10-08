@@ -19,6 +19,8 @@ Static HTML and CSS in the `site/` folder. Spanish at `/`, English at `/en/` and
 | `/online/` | `/en/online/` | `/ast/en-llinia/` | Online platforms and Spanish League |
 | `/federacion/` | `/en/federation/` | `/ast/federacion/` | Federation, League, clubs |
 | `/contacto/` | `/en/contact/` | `/ast/contautu/` | About us, WhatsApp, Instagram, email |
+| `/aprender/mcr/`, `/riichi/`, `/duplicate/` | `/en/learn/mcr/`, `/riichi/`, `/duplicate/` | `/ast/deprender/mcr/`, `/riichi/`, `/duplicate/` | One page per mode. Same sections: what it is, rules, books, videos, exercises, where to play. Linked from the Learn submenu |
+| `/aprender/mesa/` | `/en/learn/table/` | `/ast/deprender/mesa/` | Practice table: drag and drop tiles with snapping. Uses `js/mesa.js` and `css/mesa.css` |
 
 Each page is a folder with an `index.html` file. Edit the three language versions of a page together.
 
@@ -47,3 +49,11 @@ Each page is a folder with an `index.html` file. Edit the three language version
 | <img src="https://www.mahjongasturias.es/apple-touch-icon.png" width="48"> | Apple touch icon (180x180 px, background `#FDFDFD`)<br>`https://www.mahjongasturias.es/apple-touch-icon.png` |
 
 The old logo URL (`/composeResources/.../logo.png`) stops working after the next deploy.
+
+## Licenses
+
+- **Code:** Apache License 2.0. See `LICENSE`.
+- **Text and own images on the website:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Give credit to Mahjong Asturias and share changes under the same license.
+- **Fonts:** see `licenses/FONTS.txt`.
+- **Logos of organizations and platforms** (`site/img/orgs`, `site/img/platforms`): they belong to their owners. They are not under these licenses.
+- **Rule texts:** texts adapted from MCR, Riichi or Duplicate rules keep the license of their source.

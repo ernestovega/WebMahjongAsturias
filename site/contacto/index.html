@@ -56,10 +56,17 @@
       </div>
     </div>
     <nav class="nav" aria-label="Menú principal">
+      <a class="nav-logo" href="/" aria-label="Asociación de Mahjong de Asturias"><img src="/img/avatar.png" width="32" height="32" alt=""></a>
       <ul id="site-menu">
 <li><a href="/">Inicio</a></li>
 <li><a href="/jugar/">Jugar en Asturias</a></li>
-<li><a href="/aprender/">Aprender</a></li>
+<li class="has-sub"><a href="/aprender/">Aprender</a><button type="button" class="sub-toggle" aria-expanded="false" aria-label="Submenú de Aprender"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+<ul class="sub">
+<li><a href="/aprender/mcr/">MCR</a></li>
+<li><a href="/aprender/riichi/">Riichi</a></li>
+<li><a href="/aprender/duplicate/">Duplicate</a></li>
+<li><a href="/aprender/mesa/">Mesa de ejercicio</a></li>
+</ul></li>
 <li><a href="/online/">Jugar online</a></li>
 <li><a href="/federacion/">Federación y clubs</a></li>
 <li><a href="/contacto/" aria-current="page">Contacto</a></li>
@@ -109,7 +116,7 @@
 <h2>Quiénes somos</h2>
 <figure class="bio-photo"><img src="/img/ernesto-mahjong-madrid.jpg" width="300" height="400" alt="Ernesto sonriendo junto al cartel de Mahjong Madrid, la FEMJ y la EMA" loading="lazy"><figcaption>En un torneo de Mahjong Madrid.</figcaption></figure>
 <p>Hola, soy Ernesto; nací en Madrid, donde cofundé la asociación <a href="https://mahjongmadrid.com" target="_blank" rel="noopener noreferrer">Mahjong Madrid<span class="sr-only"> (se abre en una pestaña nueva)</span></a>, pero me casé con una gijonesa y hace cinco años que me mudé a Asturias.</p>
-<p>Quiero crear una comunidad de mahjong en Asturias. Busco jugadores, quiero enseñar a quien no conoce el juego y quiero organizar torneos.</p>
+<p>Quiero crear una comunidad de Mahjong en Asturias. Busco jugadores, quiero enseñar a quien no conoce el juego y quiero organizar torneos.</p>
 <p>Juego en competición europea. He participado en 28 torneos de MCR y Riichi en 12 ciudades de 6 países (España, Italia, Francia, Portugal, Suecia y Dinamarca). Entre ellos están el <a href="http://mahjong-europe.org/ranking/Tournament/TR_1000006.html" target="_blank" rel="noopener noreferrer">Mundial de 2019<span class="sr-only"> (se abre en una pestaña nueva)</span></a> y los Campeonatos de Europa de <a href="http://mahjong-europe.org/ranking/Tournament/TR_263.html" target="_blank" rel="noopener noreferrer">2017<span class="sr-only"> (se abre en una pestaña nueva)</span></a> y <a href="http://mahjong-europe.org/ranking/Tournament/TR_380.html" target="_blank" rel="noopener noreferrer">2023<span class="sr-only"> (se abre en una pestaña nueva)</span></a>, aunque sin grandes resultados. Puedes comprobarlo en mi <a href="http://mahjong-europe.org/ranking/Players/10990039.html" target="_blank" rel="noopener noreferrer">perfil en la EMA<span class="sr-only"> (se abre en una pestaña nueva)</span></a>. Juego sobre todo a MCR, pero también a Riichi, que es la modalidad con la que aprendí hace ya 16 años.</p>
 <p>También soy desarrollador. Creé <img class="inline-icon" src="/img/mahjong-scoring.png" width="28" height="28" alt="" loading="lazy"><a href="https://play.google.com/store/apps/details?id=com.mahjongscoring.activities" target="_blank" rel="noopener noreferrer">Mahjong Scoring<span class="sr-only"> (se abre en una pestaña nueva)</span></a>, una aplicación gratuita para Android que ayuda a llevar las puntuaciones en partidas MCR.</p>
 
@@ -119,6 +126,7 @@
   <div class="wrap">
     <ul><li><a href="https://chat.whatsapp.com/BsMiqfInUcT1ZwMMLxBw3r" target="_blank" rel="noopener noreferrer">WhatsApp<span class="sr-only"> (se abre en una pestaña nueva)</span></a></li><li><a href="https://www.instagram.com/mahjongasturias/" target="_blank" rel="noopener noreferrer">Instagram<span class="sr-only"> (se abre en una pestaña nueva)</span></a></li><li><a href="mailto:mahjongasturias@gmail.com">mahjongasturias@gmail.com</a></li></ul>
     <p>Asociación afiliada a la Federación Española de Mahjong.</p>
+    <p class="license">© 2026 Mahjong Asturias. Textos e imágenes propias bajo licencia <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.es" target="_blank" rel="noopener noreferrer license">CC BY-SA 4.0<span class="sr-only"> (se abre en una pestaña nueva)</span></a>. Los logotipos pertenecen a sus dueños.</p>
   </div>
 </footer>
 <script src="/js/main.js" defer></script>

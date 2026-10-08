@@ -57,10 +57,17 @@
       </div>
     </div>
     <nav class="nav" aria-label="Menú principal">
+      <a class="nav-logo" href="/" aria-label="Asociación de Mahjong de Asturias"><img src="/img/avatar.png" width="32" height="32" alt=""></a>
       <ul id="site-menu">
 <li><a href="/" aria-current="page">Inicio</a></li>
 <li><a href="/jugar/">Jugar en Asturias</a></li>
-<li><a href="/aprender/">Aprender</a></li>
+<li class="has-sub"><a href="/aprender/">Aprender</a><button type="button" class="sub-toggle" aria-expanded="false" aria-label="Submenú de Aprender"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+<ul class="sub">
+<li><a href="/aprender/mcr/">MCR</a></li>
+<li><a href="/aprender/riichi/">Riichi</a></li>
+<li><a href="/aprender/duplicate/">Duplicate</a></li>
+<li><a href="/aprender/mesa/">Mesa de ejercicio</a></li>
+</ul></li>
 <li><a href="/online/">Jugar online</a></li>
 <li><a href="/federacion/">Federación y clubs</a></li>
 <li><a href="/contacto/">Contacto</a></li>
@@ -78,6 +85,7 @@
   <div class="wrap">
     <ul><li><a href="https://chat.whatsapp.com/BsMiqfInUcT1ZwMMLxBw3r" target="_blank" rel="noopener noreferrer">WhatsApp<span class="sr-only"> (se abre en una pestaña nueva)</span></a></li><li><a href="https://www.instagram.com/mahjongasturias/" target="_blank" rel="noopener noreferrer">Instagram<span class="sr-only"> (se abre en una pestaña nueva)</span></a></li><li><a href="mailto:mahjongasturias@gmail.com">mahjongasturias@gmail.com</a></li></ul>
     <p>Asociación afiliada a la Federación Española de Mahjong.</p>
+    <p class="license">© 2026 Mahjong Asturias. Textos e imágenes propias bajo licencia <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.es" target="_blank" rel="noopener noreferrer license">CC BY-SA 4.0<span class="sr-only"> (se abre en una pestaña nueva)</span></a>. Los logotipos pertenecen a sus dueños.</p>
   </div>
 </footer>
 <script src="/js/main.js" defer></script>

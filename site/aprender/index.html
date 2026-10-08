@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Aprender mahjong: reglas, libros, ejercicios y aplicaciones</title>
-<meta name="description" content="Aprende mahjong paso a paso. Reglas básicas, comparación entre MCR y Riichi, manuales gratuitos, ejercicios y aplicaciones de práctica.">
+<title>Aprender Mahjong: reglas, libros, ejercicios y aplicaciones</title>
+<meta name="description" content="Aprende Mahjong paso a paso. Reglas básicas, comparación entre MCR y Riichi, manuales gratuitos, ejercicios y aplicaciones de práctica.">
 <meta name="theme-color" content="#fdfdfd">
 <link rel="canonical" href="https://www.mahjongasturias.es/aprender/">
 <link rel="alternate" hreflang="es" href="https://www.mahjongasturias.es/aprender/">
@@ -21,16 +21,16 @@
 <meta property="og:locale" content="es_ES">
 <meta property="og:locale:alternate" content="en_GB">
 <meta property="og:locale:alternate" content="ast_ES">
-<meta property="og:title" content="Aprender mahjong: reglas, libros, ejercicios y aplicaciones">
-<meta property="og:description" content="Aprende mahjong paso a paso. Reglas básicas, comparación entre MCR y Riichi, manuales gratuitos, ejercicios y aplicaciones de práctica.">
+<meta property="og:title" content="Aprender Mahjong: reglas, libros, ejercicios y aplicaciones">
+<meta property="og:description" content="Aprende Mahjong paso a paso. Reglas básicas, comparación entre MCR y Riichi, manuales gratuitos, ejercicios y aplicaciones de práctica.">
 <meta property="og:image" content="https://www.mahjongasturias.es/og-image.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Logotipo de la Asociación de Mahjong de Asturias">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Aprender mahjong: reglas, libros, ejercicios y aplicaciones">
-<meta name="twitter:description" content="Aprende mahjong paso a paso. Reglas básicas, comparación entre MCR y Riichi, manuales gratuitos, ejercicios y aplicaciones de práctica.">
+<meta name="twitter:title" content="Aprender Mahjong: reglas, libros, ejercicios y aplicaciones">
+<meta name="twitter:description" content="Aprende Mahjong paso a paso. Reglas básicas, comparación entre MCR y Riichi, manuales gratuitos, ejercicios y aplicaciones de práctica.">
 <meta name="twitter:image" content="https://www.mahjongasturias.es/og-image.png">
 <link rel="preload" href="/fonts/crimson_text_regular.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="stylesheet" href="/css/style.css">
@@ -56,10 +56,17 @@
       </div>
     </div>
     <nav class="nav" aria-label="Menú principal">
+      <a class="nav-logo" href="/" aria-label="Asociación de Mahjong de Asturias"><img src="/img/avatar.png" width="32" height="32" alt=""></a>
       <ul id="site-menu">
 <li><a href="/">Inicio</a></li>
 <li><a href="/jugar/">Jugar en Asturias</a></li>
-<li><a href="/aprender/" aria-current="page">Aprender</a></li>
+<li class="has-sub"><a href="/aprender/" aria-current="page">Aprender</a><button type="button" class="sub-toggle" aria-expanded="false" aria-label="Submenú de Aprender"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+<ul class="sub">
+<li><a href="/aprender/mcr/">MCR</a></li>
+<li><a href="/aprender/riichi/">Riichi</a></li>
+<li><a href="/aprender/duplicate/">Duplicate</a></li>
+<li><a href="/aprender/mesa/">Mesa de ejercicio</a></li>
+</ul></li>
 <li><a href="/online/">Jugar online</a></li>
 <li><a href="/federacion/">Federación y clubs</a></li>
 <li><a href="/contacto/">Contacto</a></li>
@@ -69,9 +76,11 @@
 </header>
 <main id="main">
   <div class="wrap">
-    <h1>Aprender mahjong</h1>
+    <h1>Aprender Mahjong</h1>
 
 <p class="lead">Empieza con las reglas básicas. Después elige MCR o Riichi y practica con ejercicios y aplicaciones.</p>
+
+<figure class="photo"><img src="/img/mahjong-fichas.jpg" width="1200" height="360" alt="Fichas de Mahjong verdes y blancas sobre un tapete verde" loading="lazy"></figure>
 
 <h2>Empieza aquí: 5 pasos</h2>
 <ol>
@@ -85,53 +94,36 @@
 <h2 id="variantes">MCR o Riichi</h2>
 <div class="table-wrap">
 <table>
-  <thead><tr><th></th><th>MCR</th><th>Riichi</th></tr></thead>
+  <thead><tr><th><a href="/aprender/mcr/">MCR</a></th><th><a href="/aprender/riichi/">Riichi</a></th></tr></thead>
   <tbody>
-    <tr><th>Origen</th><td>China. Reglas de competición de 1998.</td><td>Japón.</td></tr>
-    <tr><th>Fichas</th><td>144, con flores.</td><td>136, sin flores.</td></tr>
-    <tr><th>Para ganar</th><td>La mano debe valer 8 puntos como mínimo.</td><td>La mano debe tener al menos una combinación (yaku).</td></tr>
-    <tr><th>Puntos</th><td>Hay 81 combinaciones con valor fijo.</td><td>Se calculan con han y fu.</td></tr>
-    <tr><th>Estilo</th><td>Juego de cálculo y de construir manos variadas.</td><td>Juego rápido, con declaración de riichi y mucha defensa.</td></tr>
-    <tr><th>Reglamento en España</th><td>Libro Verde (2006).</td><td>Reglas RCR de la <a href="http://mahjong-europe.org" target="_blank" rel="noopener noreferrer">EMA<span class="sr-only"> (se abre en una pestaña nueva)</span></a>, edición 2025.</td></tr>
+    <tr><td>La mano debe valer 8 puntos como mínimo.</td><td>La mano debe tener al menos un punto.</td></tr>
+    <tr><td>Hay 81 combinaciones con valor fijo. Se suman todas las que cumple la mano. Más en <a href="/aprender/mcr/">MCR</a>.</td><td>Hay unas 40 combinaciones (yaku) con un valor que varía circunstancialmente, como las fichas dora o si la mano está abierta o cerrada.</td></tr>
+    <tr><td>En cada turno decides qué mano construir. Cambias de mano si las fichas no llegan. Puedes ganar con el descarte de cualquier jugador. Lo que más importa es ganar rápido.</td><td>Declarar riichi sube el valor de la mano, pero ya no puedes cambiarla. Hay que decidir cuándo atacar y cuándo defender. Lo que más importa es no perder, sobre todo contra manos de alto valor.</td></tr>
+    <tr><td>Juego de cálculo y de construir manos variadas. También hay que leer la mesa, es decir, adivinar a qué juegan los demás para no perder ni darles las fichas que necesitan. Aun así, pesa menos que cerrar la mano el primero.</td><td>Juego rápido, con tensión y mucha defensa. Leer la mesa es mucho más importante: hay que adivinar a qué juegan los demás para no perder y para no descartar las fichas que necesitan.</td></tr>
+    <tr><td>La mecánica de juego es más sencilla: no hay riichi, ni dora, ni furiten. En cambio, combinar es más difícil: hay que llegar a 8 puntos y memorizar 81 combinaciones.</td><td>La mecánica de juego es más compleja: riichi, dora, furiten, contadores y fu añaden muchos detalles. En cambio, combinar es más fácil: basta con 1 punto y hay unas 40 combinaciones que memorizar, aunque cambian si la mano está abierta o cerrada.</td></tr>
+    <tr><td>Una partida tiene 16 manos.</td><td>Una partida tiene 8 manos, pero pueden ser más: si gana el Este, repite como Este.<a href="/aprender/riichi/#como-se-juega" aria-label="Cuándo repite el Este, en la página de Riichi">*</a></td></tr>
+    <tr><td>Los puntos se anotan en papel.</td><td>Los puntos se cuentan con tenbō, unas varillas de puntos. Cada jugador empieza con una cantidad fija.</td></tr>
+    <tr><td>Pagan todos los jugadores, ganes con descarte o con ficha propia. Si ganas con un descarte, quien lo tiró paga más que los demás.</td><td>Si ganas con un descarte, paga solo quien lo tiró. Si ganas con ficha propia (tsumo), pagan todos, y el Este paga más.</td></tr>
+    <tr><td>Nació en China, cuando un grupo de maestros unificó muchas reglas distintas para crear unas reglas de competición. Se juega en torneos de Europa y Asia.</td><td>Es la modalidad más jugada del mundo. En Japón tiene ligas profesionales.</td></tr>
   </tbody>
 </table>
 </div>
 <p>Si no sabes cuál elegir, prueba las dos. Las fichas y la idea del juego son las mismas.</p>
+
 <h2 id="duplicate">Formato Duplicate</h2>
-<p>El formato Duplicate reduce el efecto de la suerte. Las mesas juegan las mismas manos repartidas. El resultado de cada jugador se compara con el de los demás. Funciona como el bridge duplicado.</p>
-<p>La Mahjong International League (<a href="https://mahjong-mil.org/" target="_blank" rel="noopener noreferrer">MIL<span class="sr-only"> (se abre en una pestaña nueva)</span></a>) promueve este formato para hacer del mahjong un deporte mental de competición. Lee más sobre la <a href="https://mahjong-mil.org/" target="_blank" rel="noopener noreferrer">MIL<span class="sr-only"> (se abre en una pestaña nueva)</span></a> en <a href="/federacion/#mind-sport">Mahjong como deporte mental</a>.</p>
-<figure class="video" data-id="r6yao6Q6msY" data-title="Introduction of Duplicate Format for Mahjong (English)"><a class="video-link" href="https://www.youtube.com/watch?v=r6yao6Q6msY" target="_blank" rel="noopener noreferrer"><img src="/img/duplicate-video.jpg" width="960" height="540" alt="" loading="lazy"><span class="play" aria-hidden="true"></span><span class="sr-only">Ver el vídeo «Introduction of Duplicate Format for Mahjong» en YouTube</span><span class="sr-only"> (se abre en una pestaña nueva)</span></a><figcaption>Vídeo en inglés: introducción al formato Duplicate. La <a href="https://mahjong-mil.org/" target="_blank" rel="noopener noreferrer">MIL<span class="sr-only"> (se abre en una pestaña nueva)</span></a> lo muestra en su página de reglas Duplicate. El vídeo se carga de YouTube solo cuando pulsas.</figcaption></figure>
+<p>El formato Duplicate reduce el efecto de la suerte. Las mesas juegan las mismas manos repartidas. El resultado de cada jugador se compara con el de los demás. Funciona como el Bridge duplicado.</p>
+<p>Se juega online en <a href="https://www.mahjongsoft.com/" target="_blank" rel="noopener noreferrer">MahjongSoft<span class="sr-only"> (se abre en una pestaña nueva)</span></a>. Es la única plataforma que lo soporta. Lee más en la página de <a href="/aprender/duplicate/">Duplicate</a>.</p>
+
+<h2 id="otras-reglas">Otras reglas</h2>
+<p>Hay muchas más reglas de Mahjong. Estas son cuatro de las más extendidas.</p>
 <ul>
-  <li><a href="https://mahjong-mil.org/rules_dup/" target="_blank" rel="noopener noreferrer">Reglas Duplicate de la MIL<span class="sr-only"> (se abre en una pestaña nueva)</span></a></li>
+  <li><strong>SBR (Sichuan Bloody Rules).</strong> Viene de Sichuan, en China. Usa 108 fichas, sin honores ni flores. Cada jugador elige un palo que no usará y debe descartarlo primero. No se pueden coger descartes para hacer escaleras. La mano no termina cuando alguien gana. Sigue hasta que queda un solo jugador sin ganar.</li>
+  <li><strong>Americano.</strong> Se juega sobre todo en Estados Unidos. Usa 152 fichas, con 8 comodines. Las manos válidas están en una tarjeta que publica cada año la National Mahjong League. Al empezar, los jugadores se pasan fichas entre ellos. Esa fase se llama Charleston. El libro <a href="https://amzn.eu/d/044x4Lg4" target="_blank" rel="noopener noreferrer">«Mahjong Americano: Paso a paso»<span class="sr-only"> (se abre en una pestaña nueva)</span></a>, de Héctor Escaso, cofundador de Mahjong Madrid, explica el juego. En España, mira el Instagram de <a href="https://www.instagram.com/mahjongamericanomadrid/" target="_blank" rel="noopener noreferrer">Mahjong Americano Madrid<span class="sr-only"> (se abre en una pestaña nueva)</span></a>.</li>
+  <li><strong>Taiwanés.</strong> Se juega en Taiwán. Cada jugador tiene 16 fichas en lugar de 13. La mano ganadora tiene cinco grupos y una pareja. Usa flores y cuenta los puntos en tai.</li>
+  <li><strong>Hongkonés.</strong> Se juega en Hong Kong. Usa 144 fichas, con flores. La mano ganadora tiene cuatro grupos y una pareja. Los puntos se cuentan en fan.</li>
 </ul>
 
-<h2>Reglamentos oficiales</h2>
-<ul>
-  <li><a href="https://femj.es/media/pdf/Reglas_MCR.pdf" target="_blank" rel="noopener noreferrer">Manual MCR de la Federación (PDF)<span class="sr-only"> (se abre en una pestaña nueva)</span></a></li>
-  <li><a href="https://femj.es/media/pdf/Reglas_RCR.pdf" target="_blank" rel="noopener noreferrer">Manual RCR de la Federación (PDF)<span class="sr-only"> (se abre en una pestaña nueva)</span></a></li>
-  <li><a href="http://wiki.femj.es/index.php?title=Reglas_de_Competición_de_Mahjong" target="_blank" rel="noopener noreferrer">Wiki de la Federación: reglas MCR<span class="sr-only"> (se abre en una pestaña nueva)</span></a></li>
-  <li><a href="http://wiki.femj.es/index.php?title=Reglas_de_Competición_de_Riichi" target="_blank" rel="noopener noreferrer">Wiki de la Federación: reglas Riichi<span class="sr-only"> (se abre en una pestaña nueva)</span></a></li>
-  <li><a href="https://mahjong.dk/hubfs/Mahjong%20documents/MCR/MCR_Rulebook_2006.pdf" target="_blank" rel="noopener noreferrer">MCR Rulebook 2006 (PDF, inglés)<span class="sr-only"> (se abre en una pestaña nueva)</span></a></li>
-</ul>
-
-<h2>Guías y libros</h2>
-<ul>
-  <li><a href="https://moonpost.com/mahjongstuff/Riichi-BeginnersGuide.pdf" target="_blank" rel="noopener noreferrer">Riichi Beginners Guide (PDF, inglés)<span class="sr-only"> (se abre en una pestaña nueva)</span></a>. Una guía corta para empezar con Riichi.</li>
-  <li><a href="https://www.mahjongsoft.com/" target="_blank" rel="noopener noreferrer">MCR Handbook en MahjongSoft<span class="sr-only"> (se abre en una pestaña nueva)</span></a>. Libros y manuales sobre MCR en la sección Books.</li>
-</ul>
-
-<h2>Ejercicios y práctica</h2>
-<ul>
-  <li><a href="https://www.mahjongsoft.com/" target="_blank" rel="noopener noreferrer">MahjongSoft<span class="sr-only"> (se abre en una pestaña nueva)</span></a> tiene un entrenador de MCR, un calculador de manos y partidas contra bots.</li>
-  <li><a href="https://mahjongsoul.com" target="_blank" rel="noopener noreferrer">Mahjong Soul<span class="sr-only"> (se abre en una pestaña nueva)</span></a> tiene un tutorial de Riichi dentro del juego.</li>
-  <li><a href="https://euophrys.itch.io/mahjong-efficiency-trainer" target="_blank" rel="noopener noreferrer">Mahjong Efficiency Trainer<span class="sr-only"> (se abre en una pestaña nueva)</span></a>. Te enseña a elegir el mejor descarte en Riichi.</li>
-</ul>
-<p>Para jugar partidas con otras personas, mira todas las plataformas en <a href="/online/">Jugar online</a>.</p>
-
-<h2>Para partidas en persona</h2>
-<ul class="clubs platforms single">
-<li><a class="club" href="https://play.google.com/store/apps/details?id=com.mahjongscoring.activities" target="_blank" rel="noopener noreferrer"><img src="/img/mahjong-scoring.png" width="64" height="64" alt="" loading="lazy"><span><span class="club-name">Mahjong Scoring</span><span class="tags"><span class="tag">Android</span><span class="tag">MCR</span><span class="tag">Gratis</span></span><span class="club-place">Aplicación gratuita para Android. Ayuda a llevar las puntuaciones en partidas MCR. La creó el fundador de esta asociación.</span></span><span class="sr-only"> (se abre en una pestaña nueva)</span></a></li>
-</ul>
+<p>Para jugar partidas con otras personas, mira <a href="/online/">Jugar online</a>. Cada página de modalidad dice qué plataforma conviene.</p>
 
 <div class="note">
   <p>¿Prefieres aprender en persona? <a href="https://chat.whatsapp.com/BsMiqfInUcT1ZwMMLxBw3r" target="_blank" rel="noopener noreferrer">Únete al grupo de WhatsApp<span class="sr-only"> (se abre en una pestaña nueva)</span></a> y pide una clase.</p>
@@ -143,6 +135,7 @@
   <div class="wrap">
     <ul><li><a href="https://chat.whatsapp.com/BsMiqfInUcT1ZwMMLxBw3r" target="_blank" rel="noopener noreferrer">WhatsApp<span class="sr-only"> (se abre en una pestaña nueva)</span></a></li><li><a href="https://www.instagram.com/mahjongasturias/" target="_blank" rel="noopener noreferrer">Instagram<span class="sr-only"> (se abre en una pestaña nueva)</span></a></li><li><a href="mailto:mahjongasturias@gmail.com">mahjongasturias@gmail.com</a></li></ul>
     <p>Asociación afiliada a la Federación Española de Mahjong.</p>
+    <p class="license">© 2026 Mahjong Asturias. Textos e imágenes propias bajo licencia <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.es" target="_blank" rel="noopener noreferrer license">CC BY-SA 4.0<span class="sr-only"> (se abre en una pestaña nueva)</span></a>. Los logotipos pertenecen a sus dueños.</p>
   </div>
 </footer>
 <script src="/js/main.js" defer></script>

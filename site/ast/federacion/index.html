@@ -56,10 +56,17 @@
       </div>
     </div>
     <nav class="nav" aria-label="Menú principal">
+      <a class="nav-logo" href="/ast/" aria-label="Asociación de Mahjong d’Asturies"><img src="/img/avatar.png" width="32" height="32" alt=""></a>
       <ul id="site-menu">
 <li><a href="/ast/">Aniciu</a></li>
 <li><a href="/ast/xugar/">Xugar n'Asturies</a></li>
-<li><a href="/ast/deprender/">Deprender</a></li>
+<li class="has-sub"><a href="/ast/deprender/">Deprender</a><button type="button" class="sub-toggle" aria-expanded="false" aria-label="Submenú de Deprender"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+<ul class="sub">
+<li><a href="/ast/deprender/mcr/">MCR</a></li>
+<li><a href="/ast/deprender/riichi/">Riichi</a></li>
+<li><a href="/ast/deprender/duplicate/">Duplicate</a></li>
+<li><a href="/ast/deprender/mesa/">Mesa d'exerciciu</a></li>
+</ul></li>
 <li><a href="/ast/en-llinia/">Xugar en llinia</a></li>
 <li><a href="/ast/federacion/" aria-current="page">Federación y clubes</a></li>
 <li><a href="/ast/contautu/">Contautu</a></li>
@@ -73,17 +80,18 @@
 
 <p class="lead">Somos una asociación afiliada a la Federación Española de Mahjong (<a href="https://www.femj.es/" target="_blank" rel="noopener noreferrer">FEMJ<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a>). Equí tienes enllaces a la federación y a los clubes d'España.</p>
 
-<h2 id="organization">Cómo s'organiza'l mahjong</h2>
-<p>El mahjong organizáu tien dellos niveles. Cada nivel pertenez al siguiente.</p>
+<h2 id="organization">Cómo s'organiza'l Mahjong</h2>
+<p>El Mahjong organizáu tien dellos niveles. Cada nivel pertenez al siguiente.</p>
 <ol class="ladder">
   <li class="has-logo"><img class="org-logo round" src="/img/avatar.png" width="48" height="48" alt="" loading="lazy"><strong><a href="#clubs">Clubes y asociaciones</a>.</strong> Organicen partíes, clases y torneos llocales. Mahjong Asturias ta nesti nivel.</li>
-  <li class="has-logo"><img class="org-logo" src="/img/orgs/femj.png" width="48" height="48" alt="" loading="lazy"><strong><a href="https://www.femj.es/" target="_blank" rel="noopener noreferrer">Federación Española de Mahjong (FEMJ)<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a>.</strong> Axunta los clubes d'España. Ye'l miembru español de la <a href="http://mahjong-europe.org" target="_blank" rel="noopener noreferrer">EMA<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a>.</li>
-  <li class="has-logo"><img class="org-logo" src="/img/orgs/ema.png" width="48" height="48" alt="" loading="lazy"><strong><a href="http://mahjong-europe.org" target="_blank" rel="noopener noreferrer">European Mahjong Association (EMA)<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a>.</strong> Axunta les federaciones européas. Certifica los torneos y lleva la clasificación europea.</li>
-  <li class="has-logo"><img class="org-logo" src="/img/orgs/wmo.png" width="48" height="48" alt="" loading="lazy"><strong><a href="http://www.mindmahjong.com/eshow.asp?uver=cn" target="_blank" rel="noopener noreferrer">World Mahjong Organization (WMO)<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a>.</strong> Axunta organizaciones de mahjong de tol mundu. La <a href="http://mahjong-europe.org" target="_blank" rel="noopener noreferrer">EMA<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a> ta afiliada a ella. Promueve les regles MCR per tol mundu.</li>
+  <li class="has-logo"><a class="logo-link" href="https://www.femj.es/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><img class="org-logo" src="/img/orgs/femj.png" width="48" height="48" alt="" loading="lazy"></a><strong><a href="https://www.femj.es/" target="_blank" rel="noopener noreferrer">Federación Española de Mahjong (FEMJ)<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a>.</strong> Axunta los clubes d'España. Ye'l miembru español de la <a href="http://mahjong-europe.org" target="_blank" rel="noopener noreferrer">EMA<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a>.</li>
+  <li class="has-logo"><a class="logo-link" href="http://mahjong-europe.org" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><img class="org-logo" src="/img/orgs/ema.png" width="48" height="48" alt="" loading="lazy"></a><strong><a href="http://mahjong-europe.org" target="_blank" rel="noopener noreferrer">European Mahjong Association (EMA)<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a>.</strong> Axunta les federaciones européas. Certifica los torneos y lleva <a href="http://mahjong-europe.org/ranking/RankingOverview.html" target="_blank" rel="noopener noreferrer">la clasificación europea<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a>.</li>
+  <li class="has-logo"><a class="logo-link" href="http://www.mindmahjong.com/eshow.asp?uver=cn" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><img class="org-logo" src="/img/orgs/wmo.png" width="48" height="48" alt="" loading="lazy"></a><strong><a href="http://www.mindmahjong.com/eshow.asp?uver=cn" target="_blank" rel="noopener noreferrer">World Mahjong Organization (WMO)<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a>.</strong> Axunta organizaciones de Mahjong de tol mundu. La <a href="http://mahjong-europe.org" target="_blank" rel="noopener noreferrer">EMA<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a> ta afiliada a ella. Promueve les regles MCR per tol mundu.</li>
 </ol>
-<div class="org card"><img class="org-logo" src="/img/orgs/mil.png" width="64" height="64" alt="" loading="lazy"><div><p>A parte, la <a href="https://mahjong-mil.org/" target="_blank" rel="noopener noreferrer">Mahjong International League (MIL)<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a> trabaya'l mahjong como deporte mental. Lee más en <a href="#mind-sport">Mahjong como deporte mental</a>.</p></div></div>
+<div class="org card"><a class="logo-link" href="https://mahjong-mil.org/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><img class="org-logo" src="/img/orgs/mil.png" width="64" height="64" alt="" loading="lazy"></a><div><p>A parte, la <a href="https://mahjong-mil.org/" target="_blank" rel="noopener noreferrer">Mahjong International League (MIL)<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a> trabaya'l Mahjong como deporte mental. Lee más en <a href="#mind-sport">Mahjong como deporte mental</a>.</p></div></div>
 
 <h2>Federación Española de Mahjong</h2>
+<a class="logo-link" href="https://www.femj.es/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><img class="org-logo side" src="/img/orgs/femj.png" width="110" height="110" alt="" loading="lazy"></a>
 <p>La <a href="https://www.femj.es/" target="_blank" rel="noopener noreferrer">FEMJ<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a> axunta les asociaciones d'España que xueguen coles regles de la European Mahjong Association (<a href="http://mahjong-europe.org" target="_blank" rel="noopener noreferrer">EMA<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a>). Organiza los torneos oficiales y lleva la Lliga Española.</p>
 <ul>
   <li><a href="https://www.femj.es/" target="_blank" rel="noopener noreferrer">Web de la Federación<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a> (castellán)</li>
@@ -93,53 +101,51 @@
 </ul>
 
 <h2>Lliga Española de Mahjong</h2>
+<a class="logo-link" href="https://ranking.femj.es/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><img class="org-logo side" src="/img/orgs/liga.png" width="120" height="92" alt="" loading="lazy"></a>
 <p>La lliga tien clasificación pa MCR y pa Riichi. Xuégase en <a href="https://www.mahjongsoft.com/" target="_blank" rel="noopener noreferrer">MahjongSoft<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a> (MCR y Riichi), en <a href="https://mahjongsoul.com" target="_blank" rel="noopener noreferrer">Mahjong Soul<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a> (Riichi) y tamién en persona.</p>
 <ul>
   <li><a href="https://ranking.femj.es/" target="_blank" rel="noopener noreferrer">Clasificación y resultaos<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a></li>
   <li><a href="https://forms.gle/vf6HY6ph9Sdx7MLZ7" target="_blank" rel="noopener noreferrer">Cómo apuntase<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a>. Pide'l to nome, la to rexón, el to númberu <a href="http://mahjong-europe.org" target="_blank" rel="noopener noreferrer">EMA<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a> y los tos usuarios en llinia.</li>
-  <li>MCR usa'l Llibru Verde (2006). Riichi usa les regles <a href="http://mahjong-europe.org" target="_blank" rel="noopener noreferrer">EMA<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a> 2025.</li>
+  <li>MCR usa'l <a href="https://mahjong-europe.org/portal/images/docs/GreenBookTranslatedintoSpanishbyIvanMaestreRos.pdf" target="_blank" rel="noopener noreferrer">Llibru Verde<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a> (2006). Riichi usa <a href="https://mahjong-europe.org/portal/images/docs/Riichi-rules-2025-EN.pdf" target="_blank" rel="noopener noreferrer">les regles EMA 2025<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a>.</li>
 </ul>
 
 <h2 id="clubs">Clubes y asociaciones</h2>
 <ul class="clubs">
-<li class="club here"><img src="/img/avatar.png" width="64" height="64" alt="" loading="lazy"><span><span class="club-name">Mahjong Asturias</span><span class="club-place">Xixón y Asturies</span></span></li>
+<li class="club here"><img src="/img/avatar.png" width="64" height="64" alt="" loading="lazy"><span><span class="club-name">Mahjong Asturias</span><span class="club-place">Asturies</span></span></li>
 <li><a class="club" href="https://mahjongmadrid.com" target="_blank" rel="noopener noreferrer"><img src="/img/clubs/mmad.png" width="64" height="64" alt="" loading="lazy"><span><span class="club-name">Mahjong Madrid</span><span class="club-place">Madrid</span></span><span class="sr-only"> (ábrese nuna pestaña nueva)</span></a></li>
-<li><a class="club" href="https://mahjong-valencia.es" target="_blank" rel="noopener noreferrer"><img src="/img/clubs/mvlc.png" width="64" height="64" alt="" loading="lazy"><span><span class="club-name">Mahjong Valencia</span><span class="club-place">Aldaia (Valencia)</span></span><span class="sr-only"> (ábrese nuna pestaña nueva)</span></a></li>
-<li><a class="club" href="https://los3dragones.boards.net" target="_blank" rel="noopener noreferrer"><img src="/img/clubs/tresdragones.jpg" width="64" height="64" alt="" loading="lazy"><span><span class="club-name">Los Tres Dragones</span><span class="club-place">Puzol (Valencia)</span></span><span class="sr-only"> (ábrese nuna pestaña nueva)</span></a></li>
-<li><a class="club" href="https://www.femj.es/clubes.php" target="_blank" rel="noopener noreferrer"><img src="/img/clubs/malc.png" width="64" height="64" alt="" loading="lazy"><span><span class="club-name">Alicante Mahjong Club</span><span class="club-place">Almoradí (Alicante)</span></span><span class="sr-only"> (ábrese nuna pestaña nueva)</span></a></li>
-<li><a class="club" href="http://aguilasydragones-mahjongclub.blogspot.com.es" target="_blank" rel="noopener noreferrer"><img src="/img/clubs/aguilas.jpg" width="64" height="64" alt="" loading="lazy"><span><span class="club-name">Águilas y Dragones</span><span class="club-place">Águilas (Murcia)</span></span><span class="sr-only"> (ábrese nuna pestaña nueva)</span></a></li>
+<li><a class="club" href="https://mahjong-valencia.es" target="_blank" rel="noopener noreferrer"><img src="/img/clubs/mvlc.png" width="64" height="64" alt="" loading="lazy"><span><span class="club-name">Mahjong Valencia</span><span class="club-place">Valencia</span></span><span class="sr-only"> (ábrese nuna pestaña nueva)</span></a></li>
 <li><a class="club" href="https://www.facebook.com/vientodelsurestemahjong" target="_blank" rel="noopener noreferrer"><img src="/img/clubs/vsur.png" width="64" height="64" alt="" loading="lazy"><span><span class="club-name">Viento del Sureste</span><span class="club-place">Murcia</span></span><span class="sr-only"> (ábrese nuna pestaña nueva)</span></a></li>
+<li><a class="club" href="https://los3dragones.boards.net" target="_blank" rel="noopener noreferrer"><img src="/img/clubs/tresdragones.jpg" width="64" height="64" alt="" loading="lazy"><span><span class="club-name">Los Tres Dragones</span><span class="club-place">Puzol (Valencia)</span></span><span class="sr-only"> (ábrese nuna pestaña nueva)</span></a></li>
+<li><a class="club" href="http://aguilasydragones-mahjongclub.blogspot.com.es" target="_blank" rel="noopener noreferrer"><img src="/img/clubs/aguilas.jpg" width="64" height="64" alt="" loading="lazy"><span><span class="club-name">Águilas y Dragones</span><span class="club-place">Águilas (Murcia)</span></span><span class="sr-only"> (ábrese nuna pestaña nueva)</span></a></li>
+<li><a class="club" href="https://www.femj.es/clubes.php" target="_blank" rel="noopener noreferrer"><img src="/img/clubs/malc.png" width="64" height="64" alt="" loading="lazy"><span><span class="club-name">Alicante Mahjong Club</span><span class="club-place">Almoradí (Alicante)</span></span><span class="sr-only"> (ábrese nuna pestaña nueva)</span></a></li>
 <li><a class="club" href="https://ranking.femj.es/club.php?id=mbcl" target="_blank" rel="noopener noreferrer"><img src="/img/clubs/generic.svg" width="64" height="64" alt="" loading="lazy"><span><span class="club-name">Mahjong Barcelona</span><span class="club-place">Barcelona</span></span><span class="sr-only"> (ábrese nuna pestaña nueva)</span></a></li>
 <li><a class="club" href="https://ranking.femj.es/club.php?id=arma" target="_blank" rel="noopener noreferrer"><img src="/img/clubs/generic.svg" width="64" height="64" alt="" loading="lazy"><span><span class="club-name">AR.MA.</span><span class="club-place">Aragón</span></span><span class="sr-only"> (ábrese nuna pestaña nueva)</span></a></li>
 <li><a class="club" href="https://ranking.femj.es/club.php?id=hopi" target="_blank" rel="noopener noreferrer"><img src="/img/clubs/generic.svg" width="64" height="64" alt="" loading="lazy"><span><span class="club-name">Honores del Pirineo</span><span class="club-place">Pirineu</span></span><span class="sr-only"> (ábrese nuna pestaña nueva)</span></a></li>
 </ul>
 <p class="muted">¿Falta un club nesta llista? <a href="/ast/contautu/">Escríbenos</a> y lu añadimos.</p>
 
-<h2 id="ema">EMA y WMO</h2>
-<div class="org"><img class="org-logo" src="/img/orgs/ema.png" width="64" height="64" alt="" loading="lazy"><div>
-<h3>European Mahjong Association (EMA)</h3>
-<p>La <a href="http://mahjong-europe.org" target="_blank" rel="noopener noreferrer">EMA<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a> fundóse en 2005. Certifica los torneos y organiza los campeonatos d'Europa. La <a href="https://www.femj.es/" target="_blank" rel="noopener noreferrer">FEMJ<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a> regula los torneos d'España que cuenten pa la clasificación europea.</p>
-</div></div>
+<h2 id="ema">European Mahjong Association (EMA)</h2>
+<a class="logo-link" href="http://mahjong-europe.org" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><img class="org-logo side" src="/img/orgs/ema.png" width="110" height="110" alt="" loading="lazy"></a>
+<p>La <a href="http://mahjong-europe.org" target="_blank" rel="noopener noreferrer">EMA<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a> fundóse en 2005. Certifica los torneos y organiza los campeonatos d'Europa. La <a href="https://www.femj.es/" target="_blank" rel="noopener noreferrer">FEMJ<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a> regula los torneos d'España que cuenten pa <a href="http://mahjong-europe.org/ranking/RankingOverview.html" target="_blank" rel="noopener noreferrer">la clasificación europea<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a>.</p>
 <ul>
-  <li><a href="http://mahjong-europe.org" target="_blank" rel="noopener noreferrer">Web de la EMA<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a></li>
   <li><a href="http://mahjong-europe.org/ranking/Calendar.html" target="_blank" rel="noopener noreferrer">Calendariu de torneos de la EMA<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a></li>
   <li><a href="http://mahjong-europe.org/ranking/Country/ESP_Information.html" target="_blank" rel="noopener noreferrer">España na clasificación de la EMA<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a></li>
   <li><a href="http://mahjong-europe.org/ranking/Players/10990039.html" target="_blank" rel="noopener noreferrer">Perfil d'Ernesto na EMA<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a></li>
 </ul>
-<div class="org"><img class="org-logo" src="/img/orgs/wmo.png" width="64" height="64" alt="" loading="lazy"><div>
-<h3>World Mahjong Organization (WMO)</h3>
-<p>La <a href="http://www.mindmahjong.com/eshow.asp?uver=cn" target="_blank" rel="noopener noreferrer">WMO<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a> creóse en 2005. Axunta organizaciones de mahjong de tol mundu. Promueve les regles MCR, que China fixó en 1998.</p>
-</div></div>
-<ul>
-  <li><a href="http://www.mindmahjong.com/eshow.asp?uver=cn" target="_blank" rel="noopener noreferrer">Web de la WMO<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a></li>
-</ul>
+<h2 id="wmo">World Mahjong Organization (WMO)</h2>
+<a class="logo-link" href="http://www.mindmahjong.com/eshow.asp?uver=cn" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><img class="org-logo side" src="/img/orgs/wmo.png" width="110" height="110" alt="" loading="lazy"></a>
+<p>La <a href="http://www.mindmahjong.com/eshow.asp?uver=cn" target="_blank" rel="noopener noreferrer">WMO<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a> creóse en 2005. Axunta organizaciones de Mahjong de tol mundu. Promueve les regles MCR, que China fixó en 1998.</p>
 
 <h2 id="mind-sport">Mahjong como deporte mental</h2>
-<p>El mahjong ye ún de los seis xuegos que la International Mind Sports Association (<a href="https://imsa.sport/" target="_blank" rel="noopener noreferrer">IMSA<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a>) reconoz como deporte mental. Los otros cinco son l'axedrez, el bridge, les dames, el go y el xiangqi (axedrez chinu). La <a href="https://imsa.sport/" target="_blank" rel="noopener noreferrer">IMSA<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a> aprobó'l mahjong n'abril de 2017.</p>
-<div class="org"><img class="org-logo" src="/img/orgs/mil.png" width="64" height="64" alt="" loading="lazy"><div>
-<p>La Mahjong International League (<a href="https://mahjong-mil.org/" target="_blank" rel="noopener noreferrer">MIL<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a>) representa al mahjong na <a href="https://imsa.sport/" target="_blank" rel="noopener noreferrer">IMSA<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a>. Creóse en 2015 y tien la so sede en Lausana (Suiza). Axunta asociaciones de más de 50 países y rexones. Reconoz tres reglamentos: MCR, Riichi y Sichuan. El so oxetivu ye averar el mahjong al reconocimientu olímpicu.</p>
-</div></div>
-<p>La <a href="https://mahjong-mil.org/" target="_blank" rel="noopener noreferrer">MIL<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a> promueve'l formatu Duplicate, nel que toles meses xueguen les mesmes manes. Mira cómo funciona, con un videu, en <a href="/ast/deprender/#duplicate">Deprender: formatu Duplicate</a>.</p>
+<p>El Mahjong ye ún de los seis xuegos que la International Mind Sports Association (<a href="https://imsa.sport/" target="_blank" rel="noopener noreferrer">IMSA<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a>) reconoz como deporte mental. Los otros cinco son l'Axedrez, el Bridge, les Dames, el Go y el Xiangqi (Axedrez chinu).</p>
+<h3 id="imsa">International Mind Sports Association (IMSA)</h3>
+<a class="logo-link" href="https://imsa.sport/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><img class="org-logo side" src="/img/orgs/imsa.png" width="110" height="110" alt="" loading="lazy"></a>
+<p>La <a href="https://imsa.sport/" target="_blank" rel="noopener noreferrer">IMSA<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a> aprobó'l Mahjong como deporte mental n'abril de 2017. Ye l'organización qu'axunta los seis xuegos reconocíos.</p>
+
+<h3 id="mil">Mahjong International League (MIL)</h3>
+<a class="logo-link" href="https://mahjong-mil.org/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><img class="org-logo side" src="/img/orgs/mil.png" width="110" height="110" alt="" loading="lazy"></a>
+<p>La Mahjong International League (<a href="https://mahjong-mil.org/" target="_blank" rel="noopener noreferrer">MIL<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a>) representa al Mahjong na <a href="https://imsa.sport/" target="_blank" rel="noopener noreferrer">IMSA<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a>. Creóse en 2015 y tien la so sede en Lausana (Suiza). Axunta asociaciones de más de 50 países y rexones. Reconoz tres reglamentos: MCR, Riichi y Sichuan. El so oxetivu ye averar el Mahjong al reconocimientu olímpicu.</p>
+<p>La <a href="https://mahjong-mil.org/" target="_blank" rel="noopener noreferrer">MIL<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a> promueve'l formatu Duplicate, nel que toles meses xueguen les mesmes manes. Mira cómo funciona, con un videu, en <a href="/ast/deprender/duplicate/">Deprender: formatu Duplicate</a>.</p>
 <ul>
   <li><a href="https://mahjong-mil.org/rules_dup/" target="_blank" rel="noopener noreferrer">Regles Duplicate de la MIL<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a></li>
   <li><a href="https://mahjong-mil.org/" target="_blank" rel="noopener noreferrer">Web de la MIL<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a></li>
@@ -154,6 +160,7 @@
   <div class="wrap">
     <ul><li><a href="https://chat.whatsapp.com/BsMiqfInUcT1ZwMMLxBw3r" target="_blank" rel="noopener noreferrer">WhatsApp<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a></li><li><a href="https://www.instagram.com/mahjongasturias/" target="_blank" rel="noopener noreferrer">Instagram<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a></li><li><a href="mailto:mahjongasturias@gmail.com">mahjongasturias@gmail.com</a></li></ul>
     <p>Asociación afiliada a la Federación Española de Mahjong.</p>
+    <p class="license">© 2026 Mahjong Asturias. Testos ya imáxenes propies baxo llicencia <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.es" target="_blank" rel="noopener noreferrer license">CC BY-SA 4.0<span class="sr-only"> (ábrese nuna llingüeta nueva)</span></a>. Los logotipos son de los sos dueños.</p>
   </div>
 </footer>
 <script src="/js/main.js" defer></script>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<title>Mahjong practice table</title>
+<meta name="description" content="A virtual table to practise and teach Mahjong. Drag the tiles and let them snap together to build combinations.">
+<meta name="theme-color" content="#17613a">
+<link rel="canonical" href="https://www.mahjongasturias.es/en/learn/table/">
+<link rel="alternate" hreflang="es" href="https://www.mahjongasturias.es/aprender/mesa/">
+<link rel="alternate" hreflang="en" href="https://www.mahjongasturias.es/en/learn/table/">
+<link rel="alternate" hreflang="ast" href="https://www.mahjongasturias.es/ast/deprender/mesa/">
+<link rel="alternate" hreflang="x-default" href="https://www.mahjongasturias.es/aprender/mesa/">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.mahjongasturias.es/en/learn/table/">
+<meta property="og:title" content="Mahjong practice table">
+<meta property="og:description" content="A virtual table to practise and teach Mahjong. Drag the tiles and let them snap together to build combinations.">
+<meta property="og:locale" content="en_GB">
+<meta property="og:image" content="https://www.mahjongasturias.es/og-image.png">
+<link rel="stylesheet" href="/css/mesa.css">
+</head>
+<body>
+<div id="table">
+  <div id="bar">
+    <a href="/en/learn/">← Exit</a>
+    <button type="button" id="clear">Clear table</button>
+    <button type="button" id="fullscreen">Full screen</button>
+    <span class="langs"><a class="lang" href="/aprender/mesa/" hreflang="es" lang="es" aria-label="Español" title="Español"><svg class="flag" viewBox="0 0 3 2" aria-hidden="true"><rect width="3" height="2" fill="#AA151B"/><rect y="0.5" width="3" height="1" fill="#F1BF00"/></svg></a><a class="lang" href="/ast/deprender/mesa/" hreflang="ast" lang="ast" aria-label="Asturianu" title="Asturianu"><svg class="flag" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" fill="#0B4EA2"/><polygon points="24,3 36,3 33,17 47,14 47,26 33,23 36,37 24,37 27,23 13,26 13,14 27,17" fill="#FFD500"/></svg></a></span>
+  </div>
+  <noscript><p class="nojs">This table needs JavaScript.</p></noscript>
+</div>
+<div id="help">
+  <button type="button" id="help-btn" aria-expanded="true" aria-controls="help-text" aria-label="Help" title="Help">?</button>
+  <ul id="help-text">
+    <li>Drag a tile to move it.</li>
+    <li>Drag on the empty table to select several tiles and move them together.</li>
+    <li>Double-click (or double-tap) a tile in a pile to put it next to the last tile you touched.</li>
+    <li>Double-click (or double-tap) a tile on the table to send it back to its pile.</li>
+    <li>Hold Alt to turn snapping off.</li>
+  </ul>
+</div>
+<p class="license">© 2026 Mahjong Asturias · <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en" target="_blank" rel="noopener noreferrer license">CC BY-SA 4.0</a></p>
+<script src="/js/mesa.js" defer></script>
+</body>
+</html>

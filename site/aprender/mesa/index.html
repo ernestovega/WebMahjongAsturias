@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<title>Mesa de ejercicio de Mahjong</title>
+<meta name="description" content="Mesa virtual para practicar y enseñar Mahjong. Arrastra las fichas y júntalas con el imán para formar combinaciones.">
+<meta name="theme-color" content="#17613a">
+<link rel="canonical" href="https://www.mahjongasturias.es/aprender/mesa/">
+<link rel="alternate" hreflang="es" href="https://www.mahjongasturias.es/aprender/mesa/">
+<link rel="alternate" hreflang="en" href="https://www.mahjongasturias.es/en/learn/table/">
+<link rel="alternate" hreflang="ast" href="https://www.mahjongasturias.es/ast/deprender/mesa/">
+<link rel="alternate" hreflang="x-default" href="https://www.mahjongasturias.es/aprender/mesa/">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.mahjongasturias.es/aprender/mesa/">
+<meta property="og:title" content="Mesa de ejercicio de Mahjong">
+<meta property="og:description" content="Mesa virtual para practicar y enseñar Mahjong. Arrastra las fichas y júntalas con el imán para formar combinaciones.">
+<meta property="og:locale" content="es_ES">
+<meta property="og:image" content="https://www.mahjongasturias.es/og-image.png">
+<link rel="stylesheet" href="/css/mesa.css">
+</head>
+<body>
+<div id="table">
+  <div id="bar">
+    <a href="/aprender/">← Salir</a>
+    <button type="button" id="clear">Vaciar mesa</button>
+    <button type="button" id="fullscreen">Pantalla completa</button>
+    <span class="langs"><a class="lang" href="/en/learn/table/" hreflang="en" lang="en" aria-label="English" title="English"><svg class="flag" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" fill="#012169"/><path d="M0 0L60 40M60 0L0 40" stroke="#fff" stroke-width="8"/><path d="M0 0L60 40M60 0L0 40" stroke="#C8102E" stroke-width="3"/><path d="M30 0V40M0 20H60" stroke="#fff" stroke-width="12"/><path d="M30 0V40M0 20H60" stroke="#C8102E" stroke-width="7"/></svg></a><a class="lang" href="/ast/deprender/mesa/" hreflang="ast" lang="ast" aria-label="Asturianu" title="Asturianu"><svg class="flag" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" fill="#0B4EA2"/><polygon points="24,3 36,3 33,17 47,14 47,26 33,23 36,37 24,37 27,23 13,26 13,14 27,17" fill="#FFD500"/></svg></a></span>
+  </div>
+  <noscript><p class="nojs">Esta mesa necesita JavaScript.</p></noscript>
+</div>
+<div id="help">
+  <button type="button" id="help-btn" aria-expanded="true" aria-controls="help-text" aria-label="Ayuda" title="Ayuda">?</button>
+  <ul id="help-text">
+    <li>Arrastra una ficha para moverla.</li>
+    <li>Arrastra en la mesa vacía para seleccionar varias fichas y moverlas juntas.</li>
+    <li>Haz doble clic (o doble toque) en una ficha de las pilas para ponerla junto a la última ficha que tocaste.</li>
+    <li>Haz doble clic (o doble toque) en una ficha de la mesa para devolverla a su pila.</li>
+    <li>Mantén pulsada la tecla Alt para desactivar el imán.</li>
+  </ul>
+</div>
+<p class="license">© 2026 Mahjong Asturias · <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.es" target="_blank" rel="noopener noreferrer license">CC BY-SA 4.0</a></p>
+<script src="/js/mesa.js" defer></script>
+</body>
+</html>

@@ -12,14 +12,37 @@
       {
         "source": "**/*.@(html|js|css|xml|txt|webmanifest)",
         "headers": [
-          { "key": "Cache-Control", "value": "no-cache" }
+          {
+            "key": "Cache-Control",
+            "value": "no-cache"
+          }
         ]
       },
       {
         "source": "**/*.@(png|ttf|jpg|svg)",
         "headers": [
-          { "key": "Cache-Control", "value": "public, max-age=604800" }
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=604800"
+          }
         ]
+      }
+    ],
+    "redirects": [
+      {
+        "source": "/aprender/videos{,/}",
+        "destination": "/aprender/riichi/#videos",
+        "type": 301
+      },
+      {
+        "source": "/en/learn/videos{,/}",
+        "destination": "/en/learn/riichi/#videos",
+        "type": 301
+      },
+      {
+        "source": "/ast/deprender/videos{,/}",
+        "destination": "/ast/deprender/riichi/#videos",
+        "type": 301
       }
     ]
   }

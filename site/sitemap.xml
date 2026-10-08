@@ -126,4 +126,88 @@
     <xhtml:link rel="alternate" hreflang="ast" href="https://www.mahjongasturias.es/ast/contautu/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mahjongasturias.es/contacto/"/>
   </url>
+  <url>
+    <loc>https://www.mahjongasturias.es/aprender/mesa/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mahjongasturias.es/aprender/mesa/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mahjongasturias.es/en/learn/table/"/>
+    <xhtml:link rel="alternate" hreflang="ast" href="https://www.mahjongasturias.es/ast/deprender/mesa/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mahjongasturias.es/aprender/mesa/"/>
+  </url>
+  <url>
+    <loc>https://www.mahjongasturias.es/en/learn/table/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mahjongasturias.es/aprender/mesa/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mahjongasturias.es/en/learn/table/"/>
+    <xhtml:link rel="alternate" hreflang="ast" href="https://www.mahjongasturias.es/ast/deprender/mesa/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mahjongasturias.es/aprender/mesa/"/>
+  </url>
+  <url>
+    <loc>https://www.mahjongasturias.es/ast/deprender/mesa/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mahjongasturias.es/aprender/mesa/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mahjongasturias.es/en/learn/table/"/>
+    <xhtml:link rel="alternate" hreflang="ast" href="https://www.mahjongasturias.es/ast/deprender/mesa/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mahjongasturias.es/aprender/mesa/"/>
+  </url>
+  <url>
+    <loc>https://www.mahjongasturias.es/aprender/mcr/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mahjongasturias.es/aprender/mcr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mahjongasturias.es/en/learn/mcr/"/>
+    <xhtml:link rel="alternate" hreflang="ast" href="https://www.mahjongasturias.es/ast/deprender/mcr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mahjongasturias.es/aprender/mcr/"/>
+  </url>
+  <url>
+    <loc>https://www.mahjongasturias.es/en/learn/mcr/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mahjongasturias.es/aprender/mcr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mahjongasturias.es/en/learn/mcr/"/>
+    <xhtml:link rel="alternate" hreflang="ast" href="https://www.mahjongasturias.es/ast/deprender/mcr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mahjongasturias.es/aprender/mcr/"/>
+  </url>
+  <url>
+    <loc>https://www.mahjongasturias.es/ast/deprender/mcr/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mahjongasturias.es/aprender/mcr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mahjongasturias.es/en/learn/mcr/"/>
+    <xhtml:link rel="alternate" hreflang="ast" href="https://www.mahjongasturias.es/ast/deprender/mcr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mahjongasturias.es/aprender/mcr/"/>
+  </url>
+  <url>
+    <loc>https://www.mahjongasturias.es/aprender/riichi/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mahjongasturias.es/aprender/riichi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mahjongasturias.es/en/learn/riichi/"/>
+    <xhtml:link rel="alternate" hreflang="ast" href="https://www.mahjongasturias.es/ast/deprender/riichi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mahjongasturias.es/aprender/riichi/"/>
+  </url>
+  <url>
+    <loc>https://www.mahjongasturias.es/en/learn/riichi/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mahjongasturias.es/aprender/riichi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mahjongasturias.es/en/learn/riichi/"/>
+    <xhtml:link rel="alternate" hreflang="ast" href="https://www.mahjongasturias.es/ast/deprender/riichi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mahjongasturias.es/aprender/riichi/"/>
+  </url>
+  <url>
+    <loc>https://www.mahjongasturias.es/ast/deprender/riichi/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mahjongasturias.es/aprender/riichi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mahjongasturias.es/en/learn/riichi/"/>
+    <xhtml:link rel="alternate" hreflang="ast" href="https://www.mahjongasturias.es/ast/deprender/riichi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mahjongasturias.es/aprender/riichi/"/>
+  </url>
+  <url>
+    <loc>https://www.mahjongasturias.es/aprender/duplicate/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mahjongasturias.es/aprender/duplicate/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mahjongasturias.es/en/learn/duplicate/"/>
+    <xhtml:link rel="alternate" hreflang="ast" href="https://www.mahjongasturias.es/ast/deprender/duplicate/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mahjongasturias.es/aprender/duplicate/"/>
+  </url>
+  <url>
+    <loc>https://www.mahjongasturias.es/en/learn/duplicate/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mahjongasturias.es/aprender/duplicate/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mahjongasturias.es/en/learn/duplicate/"/>
+    <xhtml:link rel="alternate" hreflang="ast" href="https://www.mahjongasturias.es/ast/deprender/duplicate/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mahjongasturias.es/aprender/duplicate/"/>
+  </url>
+  <url>
+    <loc>https://www.mahjongasturias.es/ast/deprender/duplicate/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mahjongasturias.es/aprender/duplicate/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mahjongasturias.es/en/learn/duplicate/"/>
+    <xhtml:link rel="alternate" hreflang="ast" href="https://www.mahjongasturias.es/ast/deprender/duplicate/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mahjongasturias.es/aprender/duplicate/"/>
+  </url>
 </urlset>
