@@ -1,0 +1,132 @@
+/* One-page reference pages: MCR hands and Riichi yaku. */
+.wrap.wide { max-width: 1500px; }
+.ref-page { line-height: 1.3; }
+.ref-page h1 { font-size: 1.9rem; margin: 10px 0 4px; }
+.ref-page h2 { font-size: 1rem; margin: 0; }
+.ref-page h3 { font-size: 0.95rem; margin: 0 0 4px; }
+.ref-intro { margin: 0 0 8px; font-size: 1rem; }
+.ref-page .muted { color: var(--muted); margin: 4px 0 0; font-size: 0.85rem; }
+
+
+
+/* Riichi */
+.mk-legend { margin: 0 0 6px; font-size: 0.85rem; color: var(--muted); }
+.rcards { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; align-items: start; margin-top: 18px; }
+.rcard { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 8px 12px 10px; }
+.rcard .rc-h { margin: 0 0 4px; padding-bottom: 2px; border-bottom: 2px solid var(--gold); color: var(--navy); font-size: 1.05rem; }
+:root[data-theme="dark"] .rcard .rc-h { color: var(--gold); }
+.rcard .rc-h:not(:first-child) { margin-top: 8px; }
+.fu-pair { display: grid; grid-template-columns: 1fr 1.3fr; gap: 10px; align-items: start; }
+
+.rcard .muted { margin: 0 0 4px; font-size: 0.78rem; }
+.pt-pair { display: grid; grid-template-columns: 1fr; gap: 6px; overflow-x: auto; }
+.pt-pair > div { min-width: 0; }
+table.pt, table.ft { border-collapse: collapse; width: 100%; font-size: 0.7rem; }
+table.pt th, table.pt td, table.ft th, table.ft td { border: 1px solid var(--border); padding: 0 2px; text-align: center; }
+table.pt thead th, table.ft thead th { background: var(--card); }
+table.pt tbody th { background: var(--card); }
+table.pt td b, table.pt td i { display: block; font-style: normal; white-space: nowrap; line-height: 1.2; }
+table.pt td b { font-weight: 700; }
+table.pt td i { color: var(--muted); }
+table.pt td.na { color: var(--muted); }
+table.pt tr.lim td { text-align: left; padding: 0 6px; }
+table.pt tr.lim td b, table.pt tr.lim td i { display: inline; }
+table.pt tr.lim .ln { display: inline-block; min-width: 6.5em; color: var(--muted); }
+table.ft { margin-bottom: 4px; font-size: 0.78rem; }
+table.ft th { text-align: left; background: var(--card); }
+table.ft.fo td { text-align: left; }
+
+/* Compact site header on the reference pages */
+body:has(.ref-page) .site-header .brand img { width: 32px; height: 32px; }
+
+/* Example popover */
+.hand-pop {
+  position: fixed;
+  z-index: 50;
+  background: var(--bg);
+  color: var(--text);
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+  padding: 8px 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  max-width: min(96vw, 620px);
+  pointer-events: none;
+}
+.hand-pop[hidden] { display: none; }
+.hp-title { font-weight: 700; margin-bottom: 6px; font-size: 1rem; }
+.hp-tiles { display: flex; flex-wrap: wrap; gap: 6px; }
+.hp-tiles .grp { display: flex; gap: 1px; }
+.hp-tiles .tile { width: 30px; height: 40px; display: block; }
+.hp-tiles .tile.hl, .mrow .tile.hl { filter: drop-shadow(0 0 3px #e8b923) drop-shadow(0 0 3px #e8b923); }
+
+.ref-page { font-size: clamp(13px, 1.05vw, 16px); }
+@media (max-width: 1050px) {
+  .rcards { grid-template-columns: 1fr; }
+  table.pt { min-width: 600px; }
+}
+@media (max-width: 700px) {
+  .ref-page { font-size: 16px; }
+    .fu-pair { grid-template-columns: 1fr; }
+    .pt-pair > div { overflow-x: auto; }
+  .hand-pop { left: 8px; right: 8px; bottom: 8px; top: auto !important; max-width: none; }
+  .hp-tiles .tile { width: 26px; height: 35px; }
+}
+
+.ref-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 16px; margin: 10px 0 8px; }
+.ref-head h1 { margin: 0; }
+
+.ref-head .btn { margin: 0; padding: 6px 14px; font-size: 0.95rem; }
+
+/* MCR hands: one column, one hand per row, sticky search and point headings */
+:root { --stick-top: 0px; --search-h: 52px; --pts-h: 46px; }
+.mcr-search {
+  position: sticky; top: var(--stick-top); z-index: 8;
+  display: flex; align-items: center; gap: 10px;
+  background: var(--bg); padding: 10px 0 16px; border-bottom: 1px solid var(--border);
+}
+.mcr-search input {
+  flex: 1; min-width: 0; font: inherit; font-size: 1.1rem; color: var(--text);
+  background: var(--card); border: 2px solid var(--border); border-radius: 8px; padding: 8px 12px;
+}
+.mcr-search input:focus { outline: none; border-color: var(--gold); }
+.mcr-count { font-size: 0.9rem; color: var(--muted); white-space: nowrap; }
+.mcr-list { padding-bottom: 45vh; }
+.mg-h {
+  position: sticky; top: calc(var(--stick-top) + var(--search-h)); z-index: 7;
+  display: flex; align-items: baseline; gap: 6px; margin: 0;
+  background: var(--bg); border-bottom: 2px solid var(--gold); padding: 14px 0 4px;
+}
+.mg-h .v { font-size: 2.2rem; font-weight: 700; color: var(--navy); line-height: 1.1; }
+:root[data-theme="dark"] .mg-h .v { color: var(--gold); }
+.mg-h .u { font-size: 1.35rem; color: var(--muted); }
+.mh { list-style: none; margin: 0; padding: 0; }
+.mrow {
+  display: grid; grid-template-columns: 1fr; align-items: center; gap: 4px 14px;
+  padding: 8px 4px; border-bottom: 1px solid var(--border);
+}
+.mrow .nm { font-size: 1.5rem; font-weight: 600; }
+.mrow.hit { background: var(--note-bg); }
+.mrow .ex { display: flex; flex-wrap: wrap; gap: 4px 8px; }
+.mrow .grp { display: flex; gap: 1px; }
+.mrow .tile { width: 38px; height: 51px; display: block; }
+@media (max-width: 700px) {
+  .mrow .tile { width: 28px; height: 38px; }
+  .mrow .nm { font-size: 1.3rem; }
+}
+
+/* Riichi yaku list uses the same rows as the MCR list */
+.yaku-list { padding-bottom: 0; }
+.mrow .jp { font-size: 1rem; font-weight: 400; color: var(--muted); margin-left: 6px; }
+.mrow .jp i { font-style: normal; }
+.mg-h .u:only-child { color: var(--navy); font-size: 1.6rem; font-weight: 700; }
+:root[data-theme="dark"] .mg-h .u:only-child { color: var(--gold); }
+
+/* Riichi: color shows closed-only yaku and yaku that lose 1 han when open */
+:root { --m-c: #1f5fbf; --m-o: #c2570c; }
+:root[data-theme="dark"] { --m-c: #7fb0ff; --m-o: #ffa05c; }
+.mrow.m-c .nm { color: var(--m-c); }
+.mrow.m-o .nm { color: var(--m-o); }
+.mrow.m-c .jp, .mrow.m-o .jp { color: inherit; opacity: 0.8; }
+.lg { font-weight: 700; }
+.lg-c { color: var(--m-c); }
+.lg-o { color: var(--m-o); }

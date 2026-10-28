@@ -52,8 +52,8 @@ The old logo URL (`/composeResources/.../logo.png`) stops working after the next
 
 ## Licenses
 
-- **Code:** Apache License 2.0. See `LICENSE`.
-- **Text and own images on the website:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Give credit to Mahjong Asturias and share changes under the same license.
+- **Code:** [PolyForm Noncommercial License 1.0.0](https://polyformproject.org/licenses/noncommercial/1.0.0/). You can not use it for commercial purposes. See `LICENSE`.
+- **Text and own images on the website:** [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). Give credit to Mahjong Asturias. Do not use it for commercial purposes. Share changes under the same license.
 - **Fonts:** see `licenses/FONTS.txt`.
 - **Logos of organizations and platforms** (`site/img/orgs`, `site/img/platforms`): they belong to their owners. They are not under these licenses.
 - **Rule texts:** texts adapted from MCR, Riichi or Duplicate rules keep the license of their source.

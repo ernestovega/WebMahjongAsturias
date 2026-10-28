@@ -36,7 +36,7 @@
         [11.5, 62, B], [30, 62, B], [48.5, 62, B]]
   };
 
-  function dotsFace(n) {
+  function dotsFace(n, red) {
     if (n === 1) {
       return '<circle cx="30" cy="40" r="22" fill="' + G + '"/>' +
         '<circle cx="30" cy="40" r="16" fill="#f6f1e0"/>' +
@@ -44,7 +44,7 @@
         '<circle cx="30" cy="40" r="5" fill="#f6f1e0"/>';
     }
     var r = n === 2 ? DOT_R_TWO : n === 3 ? DOT_R_FEW : DOT_R;
-    return DOTS[n].map(function (d) { return dot(d[0], d[1], r, d[2]); }).join("");
+    return DOTS[n].map(function (d) { return dot(d[0], d[1], r, red ? R : d[2]); }).join("");
   }
 
   var BAM_DARK = "#0b2b17";
@@ -129,12 +129,12 @@
     );
   }
 
-  function bambooFace(n) {
+  function bambooFace(n, red) {
     if (n === 1) return rooster();
     if (n === 8) return mShape(8, true) + mShape(44, false);
     // Shorter sticks where three share a column, so they do not overlap.
     var len = n === 6 || n === 9 ? 18 : n === 7 ? 20 : 22;
-    return STICKS[n].map(function (s) { return stick(s[0], s[1], s[2], len); }).join("");
+    return STICKS[n].map(function (s) { return stick(s[0], s[1], red ? R : s[2], len); }).join("");
   }
 
   // ---------- Flowers and seasons ----------
@@ -214,8 +214,8 @@
 
   var NUM = ["一", "二", "三", "四", "五", "六", "七", "八", "九"];
 
-  function charFace(n) {
-    return text(NUM[n - 1], 30, 36, 30, INK) + text("萬", 30, 70, 30, R);
+  function charFace(n, red) {
+    return text(NUM[n - 1], 30, 36, 30, red ? R : INK) + text("萬", 30, 70, 30, R);
   }
 
   // Small western number in the top right corner of the suit tiles.
@@ -235,11 +235,11 @@
     return text(set[type.kind].charAt(type.n - 1), 55, 12, 13, "#555");
   }
 
-  function face(type) {
+  function face(type, red) {
     switch (type.kind) {
-      case "m": return charFace(type.n) + suitNumber(type.n);
-      case "p": return dotsFace(type.n) + suitNumber(type.n);
-      case "s": return bambooFace(type.n) + suitNumber(type.n);
+      case "m": return charFace(type.n, red) + suitNumber(type.n);
+      case "p": return dotsFace(type.n, red) + suitNumber(type.n);
+      case "s": return bambooFace(type.n, red) + suitNumber(type.n);
       case "w": return text(type.ch, 30, 56, 46, INK) + honorInitial(type);
       case "d":
         if (type.ch === "白") {
@@ -283,10 +283,13 @@
     }
   };
 
-  function tileName(type) {
+  var RED_FIVE = { es: "{name} (rojo)", ast: "{name} (royu)", en: "{name} (red)" };
+
+  function tileName(type, red) {
     var names = NAMES[lang] || NAMES.es;
     var v = names[type.kind];
-    return typeof v === "string" ? v.replace("{n}", type.n) : v[type.n - 1];
+    var name = typeof v === "string" ? v.replace("{n}", type.n) : v[type.n - 1];
+    return red ? (RED_FIVE[lang] || RED_FIVE.es).replace("{name}", name) : name;
   }
 
   // ---------- Tile set and piles ----------
@@ -304,23 +307,46 @@
   ["梅", "蘭", "菊", "竹"].forEach(function (c, k) { add("f", k + 1, c, 1, 3, 7, k); });
   ["春", "夏", "秋", "冬"].forEach(function (c, k) { add("t", k + 1, c, 1, 3, 8, k); });
 
-  // Columns 0-1 go on the left side, columns 2-3 go on the right side.
+  // The four columns go together on the right side.
   // The 4 flowers and the 4 seasons make two piles at the end of column 3.
   var tiles = [];
+  var redTiles = [];
   var zTop = 1000;
 
   types.forEach(function (type) {
-    var name = tileName(type);
-    var svg = '<svg viewBox="0 0 60 80" aria-hidden="true" focusable="false">' + face(type) + "</svg>";
+    // One of the four 5s of each suit is red (Riichi). It is the top tile of the pile.
+    var hasRed = type.n === 5 && "mps".indexOf(type.kind) >= 0;
     for (var c = 0; c < type.copies; c++) {
+      var red = hasRed && c === type.copies - 1;
+      var name = tileName(type, false);
+      var svg = '<svg viewBox="0 0 60 80" aria-hidden="true" focusable="false">' + face(type, false) + "</svg>";
       var el = document.createElement("div");
       el.className = "tile";
       el.title = name;
       el.innerHTML = svg;
       table.appendChild(el);
-      tiles.push({ el: el, type: type, copy: c + type.base, home: true, x: 0, y: 0 });
+      var tile = { el: el, type: type, copy: c + type.base, home: true, x: 0, y: 0 };
+      if (red) {
+        tile.plain = { name: name, svg: svg };
+        tile.red = {
+          name: tileName(type, true),
+          svg: '<svg viewBox="0 0 60 80" aria-hidden="true" focusable="false">' + face(type, true) + "</svg>"
+        };
+        redTiles.push(tile);
+      }
+      tiles.push(tile);
     }
   });
+
+  // ---------- Red fives switch ----------
+
+  function setRedFives(on) {
+    redTiles.forEach(function (t) {
+      var look = on ? t.red : t.plain;
+      t.el.title = look.name;
+      t.el.innerHTML = look.svg;
+    });
+  }
 
   // ---------- Layout ----------
 
@@ -330,12 +356,7 @@
   function homePos(t) {
     var col = t.type.col;
     var step = tw + offset * 3 + gap;
-    var x;
-    if (col < 2) {
-      x = gap + col * step;
-    } else {
-      x = W - gap - (4 - col) * step; // columns 2 and 3 from the right edge
-    }
+    var x = W - gap - (4 - col) * step; // all four columns from the right edge
     var y = barH + gap + t.type.row * (th + gap);
     return { x: x + t.copy * offset, y: y - t.copy * offset };
   }
@@ -358,7 +379,7 @@
     var bar = document.getElementById("bar");
     barH = bar ? bar.offsetHeight : 0;
     var byHeight = (H - barH - gap * 10) / (9 * RATIO + 0.1);
-    var byWidth = (W * 0.42 - 6 * gap) / 2.6;
+    var byWidth = (W * 0.55 - 5 * gap) / 4.6;
     tw = Math.floor(Math.max(24, Math.min(64, byHeight, byWidth)));
     th = Math.round(tw * RATIO);
     offset = Math.max(2, Math.round(tw / 20));
@@ -611,6 +632,44 @@
     }
   }
 
+  var redBtn = document.getElementById("red-fives");
+  if (redBtn) {
+    var redOn = false;
+    try { redOn = localStorage.getItem("mesa-red-fives") === "1"; } catch (e) {}
+    var applyRed = function () {
+      redBtn.setAttribute("aria-pressed", redOn ? "true" : "false");
+      setRedFives(redOn);
+    };
+    redBtn.addEventListener("click", function () {
+      redOn = !redOn;
+      try { localStorage.setItem("mesa-red-fives", redOn ? "1" : "0"); } catch (e) {}
+      applyRed();
+    });
+    applyRed();
+  }
+
+  // Flowers and seasons: when off, they go back to their pile and are hidden.
+  var flowerBtn = document.getElementById("flowers");
+  if (flowerBtn) {
+    var flowersOn = false;
+    try { flowersOn = localStorage.getItem("mesa-flowers") === "1"; } catch (e) {}
+    var applyFlowers = function () {
+      flowerBtn.setAttribute("aria-pressed", flowersOn ? "true" : "false");
+      tiles.forEach(function (t) {
+        if (t.type.kind !== "f" && t.type.kind !== "t") return;
+        if (!flowersOn) sendHome(t);
+        t.el.style.display = flowersOn ? "" : "none";
+      });
+      if (!flowersOn && lastTouched && lastTouched.home) lastTouched = null;
+    };
+    flowerBtn.addEventListener("click", function () {
+      flowersOn = !flowersOn;
+      try { localStorage.setItem("mesa-flowers", flowersOn ? "1" : "0"); } catch (e) {}
+      applyFlowers();
+    });
+    applyFlowers();
+  }
+
   // ---------- Help ----------
 
   var helpBtn = document.getElementById("help-btn");
@@ -643,3 +702,9 @@
   layout();
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
 })();
+
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function () {
+    navigator.serviceWorker.register("/sw.js").catch(function () {});
+  });
+}

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ast">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Combinaciones MCR</title>
+<meta name="description" content="Les 81 combinaciones de Mahjong MCR col so valor en puntos, con buscador y un exemplu de cada mano.">
+<meta name="theme-color" content="#fdfdfd">
+<link rel="canonical" href="https://www.mahjongasturias.es/ast/deprender/manes-mcr/">
+<link rel="alternate" hreflang="es" href="https://www.mahjongasturias.es/aprender/manos-mcr/">
+<link rel="alternate" hreflang="en" href="https://www.mahjongasturias.es/en/learn/mcr-hands/">
+<link rel="alternate" hreflang="ast" href="https://www.mahjongasturias.es/ast/deprender/manes-mcr/">
+<link rel="alternate" hreflang="x-default" href="https://www.mahjongasturias.es/aprender/manos-mcr/">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.mahjongasturias.es/ast/deprender/manes-mcr/">
+<meta property="og:site_name" content="Asociación de Mahjong d'Asturies">
+<meta property="og:locale" content="ast_ES">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:title" content="Combinaciones MCR">
+<meta property="og:description" content="Les 81 combinaciones de Mahjong MCR col so valor en puntos, con buscador y un exemplu de cada mano.">
+<meta property="og:image" content="https://www.mahjongasturias.es/og-image.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Logotipu de l'Asociación de Mahjong d'Asturies">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Combinaciones MCR">
+<meta name="twitter:description" content="Les 81 combinaciones de Mahjong MCR col so valor en puntos, con buscador y un exemplu de cada mano.">
+<meta name="twitter:image" content="https://www.mahjongasturias.es/og-image.png">
+<link rel="preload" href="/fonts/crimson_text_regular.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/refs.css">
+<script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+
+</head>
+<body>
+<a class="skip" href="#main">Dir al conteníu</a>
+<header class="site-header">
+  <div class="wrap">
+    <div class="topbar">
+      <a class="brand" href="/ast/">
+        <img src="/img/avatar.png" width="48" height="48" alt="">
+        <span>Asociación de Mahjong d'Asturies</span>
+      </a>
+      <div class="tools">
+        <a href="/aprender/manos-mcr/" hreflang="es" lang="es" aria-label="Español" title="Español"><svg class="flag" viewBox="0 0 3 2" aria-hidden="true"><rect width="3" height="2" fill="#AA151B"/><rect y="0.5" width="3" height="1" fill="#F1BF00"/></svg></a>
+        <a href="/en/learn/mcr-hands/" hreflang="en" lang="en" aria-label="English" title="English"><svg class="flag" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" fill="#012169"/><path d="M0 0L60 40M60 0L0 40" stroke="#fff" stroke-width="8"/><path d="M0 0L60 40M60 0L0 40" stroke="#C8102E" stroke-width="3"/><path d="M30 0V40M0 20H60" stroke="#fff" stroke-width="12"/><path d="M30 0V40M0 20H60" stroke="#C8102E" stroke-width="7"/></svg></a>
+        <button type="button" id="theme-toggle" data-to-dark="Cambiar a tema escuru" data-to-light="Cambiar a tema claro" aria-label="Cambiar a tema escuru"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg></button>
+        <button type="button" id="menu-toggle" class="menu-btn" aria-expanded="false" aria-controls="site-menu" aria-label="Menú">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <nav class="nav" aria-label="Menú principal">
+      <a class="nav-logo" href="/ast/" aria-label="Asociación de Mahjong d’Asturies"><img src="/img/avatar.png" width="32" height="32" alt=""></a>
+      <ul id="site-menu">
+<li><a href="/ast/">Aniciu</a></li>
+<li><a href="/ast/xugar/">Xugar n'Asturies</a></li>
+<li class="has-sub"><a href="/ast/deprender/" aria-current="true">Deprender</a><button type="button" class="sub-toggle" aria-expanded="false" aria-label="Submenú de Deprender"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+<ul class="sub">
+<li><a href="/ast/deprender/mcr/">MCR</a></li>
+<li><a href="/ast/deprender/manes-mcr/" aria-current="page">MCR - Combinaciones</a></li>
+<li><a href="/ast/deprender/riichi/">Riichi</a></li>
+<li><a href="/ast/deprender/yaku-riichi/">Riichi - Yakus y Fans</a></li>
+<li><a href="/ast/deprender/duplicate/">Duplicate</a></li>
+<li><a href="/ast/deprender/mesa/">Mesa d'exerciciu</a></li>
+</ul></li>
+<li><a href="/ast/en-llinia/">Xugar en llinia</a></li>
+<li><a href="/ast/federacion/">Federación y clubes</a></li>
+<li><a href="/ast/contautu/">Contautu</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main" class="ref-page mcr">
+  <div class="wrap">
+<div class="ref-head"><h1>Combinaciones MCR</h1><a class="btn" href="/docs/mcr-manos-puntos-ast.pdf" target="_blank" rel="noopener noreferrer">Descargar en PDF<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a></div>
+<div class="mcr-search" role="search"><input type="search" id="mcr-q" placeholder="Buscar combinación" aria-label="Buscar combinación" autocomplete="off"><span class="mcr-count" id="mcr-count" aria-live="polite"></span></div>
+<div class="mcr-list" data-none="Ensin resultaos">
+<section class="mg"><h2 class="mg-h"><span class="v">1</span> <span class="u">puntu</span></h2><ul class="mh">
+<li class="mrow" data-s="2 chow iguales | Pure Double Chow | 2 chow iguales"><span class="nm">2 chow iguales</span><span class="ex" data-ex="234m 234m 567p 789s 99p"></span></li>
+<li class="mrow" data-s="2 chow mixtos | Mixed Double Chow | 2 chow mixtos"><span class="nm">2 chow mixtos</span><span class="ex" data-ex="234m 234p 567s 789s 99m"></span></li>
+<li class="mrow" data-s="Escalera corta | Short Straight | Escalera curtia"><span class="nm">Escalera curtia</span><span class="ex" data-ex="123m 456m 789p 234s 99p"></span></li>
+<li class="mrow" data-s="2 chow extremos puros | Two Terminal Chows | 2 chow estremos puros"><span class="nm">2 chow estremos puros</span><span class="ex" data-ex="123m 789m 456p 234s 99p"></span></li>
+<li class="mrow" data-s="Pong de terminales / honores | Pong of Terminals or Honors | Pong de terminales / honores"><span class="nm">Pong de terminales / honores</span><span class="ex" data-ex="999m 234p 567s 678s 55p"></span></li>
+<li class="mrow" data-s="Kong expuesto | Melded Kong | Kong espuestu"><span class="nm">Kong espuestu</span><span class="ex" data-ex="7777m 123p 456s 789s 22z"></span></li>
+<li class="mrow" data-s="Familia ausente | One Voided Suit | Familia ausente"><span class="nm">Familia ausente</span><span class="ex" data-ex="123m 456m 234p 567p 55p"></span></li>
+<li class="mrow" data-s="Sin honores | No Honors | Ensin honores"><span class="nm">Ensin honores</span><span class="ex" data-ex="234m 567p 789s 111s 55p"></span></li>
+<li class="mrow" data-s="Espera de borde | Edge Wait | Espera de borde"><span class="nm">Espera de borde</span><span class="ex" data-ex="123!m 456p 777s 234s 99m"></span></li>
+<li class="mrow" data-s="Espera cerrada | Closed Wait | Espera zarrada"><span class="nm">Espera zarrada</span><span class="ex" data-ex="45!6m 123p 777s 234s 99m"></span></li>
+<li class="mrow" data-s="Espera simple | Single Wait | Espera simple"><span class="nm">Espera simple</span><span class="ex" data-ex="123m 456p 789s 234s 99!m"></span></li>
+<li class="mrow" data-s="Del muro | Self-Drawn | Del muriu"><span class="nm">Del muriu</span><span class="ex" data-ex="234m 567p 789s 345s 99!m"></span></li>
+<li class="mrow" data-s="Flor (1 punto cada una) | Flower Tile (1 point each) | Flor (1 puntu caúna)"><span class="nm">Flor (1 puntu caúna)</span><span class="ex" data-ex="f1 f2 t1"></span></li>
+</ul></section>
+<section class="mg"><h2 class="mg-h"><span class="v">2</span> <span class="u">puntos</span></h2><ul class="mh">
+<li class="mrow" data-s="Pong de dragones | Dragon Pong | Pong de dragones"><span class="nm">Pong de dragones</span><span class="ex" data-ex="555z 123m 456p 789s 99m"></span></li>
+<li class="mrow" data-s="Viento dominante | Prevalent Wind | Vientu dominante"><span class="nm">Vientu dominante</span><span class="ex" data-ex="111z 123m 456p 789s 99m"></span></li>
+<li class="mrow" data-s="Viento propio | Seat Wind | Vientu propiu"><span class="nm">Vientu propiu</span><span class="ex" data-ex="222z 123m 456p 789s 99m"></span></li>
+<li class="mrow" data-s="Mano oculta | Concealed Hand | Mano ancultada"><span class="nm">Mano ancultada</span><span class="ex" data-ex="234m 567p 789s 345s 11!z"></span></li>
+<li class="mrow" data-s="Todo chow | All Chows | Too chow"><span class="nm">Too chow</span><span class="ex" data-ex="123m 456p 789s 234s 55m"></span></li>
+<li class="mrow" data-s="Ficha acaparada | Tile Hog | Ficha acaparada"><span class="nm">Ficha acaparada</span><span class="ex" data-ex="123m 111m 456p 789s 55z"></span></li>
+<li class="mrow" data-s="2 pong iguales | Double Pong | 2 pong iguales"><span class="nm">2 pong iguales</span><span class="ex" data-ex="333m 333p 456s 789s 11z"></span></li>
+<li class="mrow" data-s="2 pong ocultos | Two Concealed Pongs | 2 pong ancultaos"><span class="nm">2 pong ancultaos</span><span class="ex" data-ex="222m 666p 123s 456s 99m"></span></li>
+<li class="mrow" data-s="Kong oculto | Concealed Kong | Kong ancultáu"><span class="nm">Kong ancultáu</span><span class="ex" data-ex="^5555m 123p 456p 789s 11z"></span></li>
+<li class="mrow" data-s="Todo simples | All Simples | Too simples"><span class="nm">Too simples</span><span class="ex" data-ex="234m 567p 345s 678s 55m"></span></li>
+</ul></section>
+<section class="mg"><h2 class="mg-h"><span class="v">4</span> <span class="u">puntos</span></h2><ul class="mh">
+<li class="mrow" data-s="Todo con terminales y honores | Outside Hand | Too con terminales y honores"><span class="nm">Too con terminales y honores</span><span class="ex" data-ex="123m 789p 111s 999s 22z"></span></li>
+<li class="mrow" data-s="Mano completamente oculta | Fully Concealed Hand | Mano completamente ancultada"><span class="nm">Mano completamente ancultada</span><span class="ex" data-ex="234m 567p 888s 345s 11!z"></span></li>
+<li class="mrow" data-s="2 kong expuestos | Two Melded Kongs | 2 kong espuestos"><span class="nm">2 kong espuestos</span><span class="ex" data-ex="3333m 7777p 123s 456s 99m"></span></li>
+<li class="mrow" data-s="Última ficha | Last Tile | Última ficha"><span class="nm">Última ficha</span><span class="ex" data-ex="234m 567p 789s 555s 77!m"></span></li>
+</ul></section>
+<section class="mg"><h2 class="mg-h"><span class="v">6</span> <span class="u">puntos</span></h2><ul class="mh">
+<li class="mrow" data-s="2 pong de dragones | Two Dragon Pongs | 2 pong de dragones"><span class="nm">2 pong de dragones</span><span class="ex" data-ex="555z 666z 123m 456p 99s"></span></li>
+<li class="mrow" data-s="Todo pong | All Pongs | Too pong"><span class="nm">Too pong</span><span class="ex" data-ex="222m 555p 888s 333z 99p"></span></li>
+<li class="mrow" data-s="Mano semipura | Half Flush | Mano semipura"><span class="nm">Mano semipura</span><span class="ex" data-ex="123m 456m 789m 555z 22m"></span></li>
+<li class="mrow" data-s="3 chow escalonados mixtos | Mixed Shifted Chows | 3 chow escalonaos mixtos"><span class="nm">3 chow escalonaos mixtos</span><span class="ex" data-ex="123m 234p 345s 678m 11z"></span></li>
+<li class="mrow" data-s="Todas las familias y honores | All Types | Toles families y honores"><span class="nm">Toles families y honores</span><span class="ex" data-ex="123m 456p 789s 222z 55z"></span></li>
+<li class="mrow" data-s="Mano expuesta | Melded Hand | Mano espuesta"><span class="nm">Mano espuesta</span><span class="ex" data-ex="123m 456p 789s 222p 55!z"></span></li>
+<li class="mrow" data-s="Kong oculto + kong expuesto | One Concealed + One Melded Kong | Kong ancultáu + kong espuestu"><span class="nm">Kong ancultáu + kong espuestu</span><span class="ex" data-ex="^2222m 6666p 123s 456s 11z"></span></li>
+</ul></section>
+<section class="mg"><h2 class="mg-h"><span class="v">8</span> <span class="u">puntos</span></h2><ul class="mh">
+<li class="mrow" data-s="Escalera mixta | Mixed Straight | Escalera mixta"><span class="nm">Escalera mixta</span><span class="ex" data-ex="123m 456p 789s 234m 55z"></span></li>
+<li class="mrow" data-s="El espejo | Reversible Tiles | L’espeyu"><span class="nm">L’espeyu</span><span class="ex" data-ex="123p 234p 345p 456s 55z"></span></li>
+<li class="mrow" data-s="3 chow mixtos | Mixed Triple Chow | 3 chow mixtos"><span class="nm">3 chow mixtos</span><span class="ex" data-ex="234m 234p 234s 678m 11z"></span></li>
+<li class="mrow" data-s="3 pong mixtos consecutivos | Mixed Shifted Pongs | 3 pong mixtos consecutivos"><span class="nm">3 pong mixtos consecutivos</span><span class="ex" data-ex="222m 333p 444s 678m 11z"></span></li>
+<li class="mrow" data-s="Mano vacía | Chicken Hand | Mano balera"><span class="nm">Mano balera</span><span class="ex" data-ex="234m 567p 456s 678s 11z"></span></li>
+<li class="mrow" data-s="Última ficha del muro | Last Tile Draw | Última ficha del muriu"><span class="nm">Última ficha del muriu</span><span class="ex" data-ex="123m 456p 789s 222p 55!z"></span></li>
+<li class="mrow" data-s="Último descarte | Last Tile Claim | Últimu descarte"><span class="nm">Últimu descarte</span><span class="ex" data-ex="123m 456p 789s 222p 55!z"></span></li>
+<li class="mrow" data-s="Con ficha de reemplazo | Out with Replacement Tile | Con ficha de reemplazu"><span class="nm">Con ficha de reemplazu</span><span class="ex" data-ex="123p 456s 789s 5555m 22!z"></span></li>
+<li class="mrow" data-s="Robo de kong | Robbing the Kong | Robu de kong"><span class="nm">Robu de kong</span><span class="ex" data-ex="123m 456s 789s 55z 678!p"></span></li>
+<li class="mrow" data-s="2 kong ocultos | Two Concealed Kongs | 2 kong ancultaos"><span class="nm">2 kong ancultaos</span><span class="ex" data-ex="^2222m ^6666p 123s 456s 11z"></span></li>
+</ul></section>
+<section class="mg"><h2 class="mg-h"><span class="v">12</span> <span class="u">puntos</span></h2><ul class="mh">
+<li class="mrow" data-s="Fichas cosidas con pocos honores | Lesser Honors and Knitted Tiles | Fiches cosíes con pocos honores"><span class="nm">Fiches cosíes con pocos honores</span><span class="ex" data-ex="147m 258p 369s 12345z"></span></li>
+<li class="mrow" data-s="Fichas cosidas | Knitted Straight | Fiches cosíes"><span class="nm">Fiches cosíes</span><span class="ex" data-ex="147m 258p 369s 123m 55z"></span></li>
+<li class="mrow" data-s="4 superiores | Upper Four | 4 superiores"><span class="nm">4 superiores</span><span class="ex" data-ex="678m 789p 666s 789s 99m"></span></li>
+<li class="mrow" data-s="4 inferiores | Lower Four | 4 inferiores"><span class="nm">4 inferiores</span><span class="ex" data-ex="123m 234p 111s 234s 44m"></span></li>
+<li class="mrow" data-s="3 grandes vientos | Big Three Winds | 3 grandes vientos"><span class="nm">3 grandes vientos</span><span class="ex" data-ex="111z 222z 333z 456m 99p"></span></li>
+</ul></section>
+<section class="mg"><h2 class="mg-h"><span class="v">16</span> <span class="u">puntos</span></h2><ul class="mh">
+<li class="mrow" data-s="Escalera pura | Pure Straight | Escalera pura"><span class="nm">Escalera pura</span><span class="ex" data-ex="123m 456m 789m 234p 55s"></span></li>
+<li class="mrow" data-s="x2 chow extremos con 3 familias | Three-Suited Terminal Chows | x2 chow estremos con 3 families"><span class="nm">x2 chow estremos con 3 families</span><span class="ex" data-ex="123m 789m 123p 789p 55s"></span></li>
+<li class="mrow" data-s="3 chow escalonados puros | Pure Shifted Chows | 3 chow escalonaos puros"><span class="nm">3 chow escalonaos puros</span><span class="ex" data-ex="234m 345m 456m 789p 11z"></span></li>
+<li class="mrow" data-s="Todo con 5 | All Fives | Too con 5"><span class="nm">Too con 5</span><span class="ex" data-ex="345m 456p 555s 567s 55m"></span></li>
+<li class="mrow" data-s="3 pong iguales | Triple Pong | 3 pong iguales"><span class="nm">3 pong iguales</span><span class="ex" data-ex="555m 555p 555s 123m 77z"></span></li>
+<li class="mrow" data-s="3 pong ocultos | Three Concealed Pongs | 3 pong ancultaos"><span class="nm">3 pong ancultaos</span><span class="ex" data-ex="222m 666p 444s 789s 11z"></span></li>
+</ul></section>
+<section class="mg"><h2 class="mg-h"><span class="v">24</span> <span class="u">puntos</span></h2><ul class="mh">
+<li class="mrow" data-s="7 pares | Seven Pairs | 7 pareyes"><span class="nm">7 pareyes</span><span class="ex" data-ex="11m 55m 22p 99p 33s 77s 44z"></span></li>
+<li class="mrow" data-s="Fichas cosidas con grandes honores | Greater Honors and Knitted Tiles | Fiches cosíes con grandes honores"><span class="nm">Fiches cosíes con grandes honores</span><span class="ex" data-ex="147m 258p 3s 1234567z"></span></li>
+<li class="mrow" data-s="Todo pong de pares | All Even Pongs | Too pong de pareyes"><span class="nm">Too pong de pareyes</span><span class="ex" data-ex="222m 444p 666s 888p 22s"></span></li>
+<li class="mrow" data-s="Mano pura | Full Flush | Mano pura"><span class="nm">Mano pura</span><span class="ex" data-ex="123m 456m 456m 789m 22m"></span></li>
+<li class="mrow" data-s="3 chow iguales | Pure Triple Chow | 3 chow iguales"><span class="nm">3 chow iguales</span><span class="ex" data-ex="234m 234m 234m 567p 99s"></span></li>
+<li class="mrow" data-s="3 pong puros consecutivos | Pure Shifted Pongs | 3 pong puros consecutivos"><span class="nm">3 pong puros consecutivos</span><span class="ex" data-ex="333m 444m 555m 678p 11z"></span></li>
+<li class="mrow" data-s="Superiores | Upper Tiles | Superiores"><span class="nm">Superiores</span><span class="ex" data-ex="789m 789p 777s 888s 99m"></span></li>
+<li class="mrow" data-s="Centrales | Middle Tiles | Centrales"><span class="nm">Centrales</span><span class="ex" data-ex="456m 456p 444s 555s 66m"></span></li>
+<li class="mrow" data-s="Inferiores | Lower Tiles | Inferiores"><span class="nm">Inferiores</span><span class="ex" data-ex="123m 123p 111s 222s 33m"></span></li>
+</ul></section>
+<section class="mg"><h2 class="mg-h"><span class="v">32</span> <span class="u">puntos</span></h2><ul class="mh">
+<li class="mrow" data-s="4 chow escalonados puros | Four Pure Shifted Chows | 4 chow escalonaos puros"><span class="nm">4 chow escalonaos puros</span><span class="ex" data-ex="123m 234m 345m 456m 99p"></span></li>
+<li class="mrow" data-s="3 kong | Three Kongs | 3 kong"><span class="nm">3 kong</span><span class="ex" data-ex="2222m 5555p 8888s 123s 77z"></span></li>
+<li class="mrow" data-s="Todo terminales y honores | All Terminals and Honors | Too terminales y honores"><span class="nm">Too terminales y honores</span><span class="ex" data-ex="111m 999p 111s 555z 22z"></span></li>
+</ul></section>
+<section class="mg"><h2 class="mg-h"><span class="v">48</span> <span class="u">puntos</span></h2><ul class="mh">
+<li class="mrow" data-s="4 chow iguales | Quadruple Chow | 4 chow iguales"><span class="nm">4 chow iguales</span><span class="ex" data-ex="456s 456s 456s 456s 11z"></span></li>
+<li class="mrow" data-s="4 pong puros consecutivos | Four Pure Shifted Pongs | 4 pong puros consecutivos"><span class="nm">4 pong puros consecutivos</span><span class="ex" data-ex="222m 333m 444m 555m 66p"></span></li>
+</ul></section>
+<section class="mg"><h2 class="mg-h"><span class="v">64</span> <span class="u">puntos</span></h2><ul class="mh">
+<li class="mrow" data-s="Todo terminales | All Terminals | Too terminales"><span class="nm">Too terminales</span><span class="ex" data-ex="111m 999m 111p 999p 11s"></span></li>
+<li class="mrow" data-s="4 pequeños vientos | Little Four Winds | 4 pequeños vientos"><span class="nm">4 pequeños vientos</span><span class="ex" data-ex="111z 222z 333z 44z 123m"></span></li>
+<li class="mrow" data-s="3 pequeños dragones | Little Three Dragons | 3 pequeños dragones"><span class="nm">3 pequeños dragones</span><span class="ex" data-ex="555z 666z 77z 123m 456p"></span></li>
+<li class="mrow" data-s="Todo honores | All Honors | Too honores"><span class="nm">Too honores</span><span class="ex" data-ex="111z 222z 555z 666z 77z"></span></li>
+<li class="mrow" data-s="4 pong ocultos | Four Concealed Pongs | 4 pong ancultaos"><span class="nm">4 pong ancultaos</span><span class="ex" data-ex="222m 666p 444s 888s 33z"></span></li>
+<li class="mrow" data-s="x2 chow extremos de 1 familia | Pure Terminal Chows | x2 chow estremos d’1 familia"><span class="nm">x2 chow estremos d’1 familia</span><span class="ex" data-ex="123p 123p 789p 789p 55p"></span></li>
+</ul></section>
+<section class="mg"><h2 class="mg-h"><span class="v">88</span> <span class="u">puntos</span></h2><ul class="mh">
+<li class="mrow" data-s="4 grandes vientos | Big Four Winds | 4 grandes vientos"><span class="nm">4 grandes vientos</span><span class="ex" data-ex="111z 222z 333z 444z 55p"></span></li>
+<li class="mrow" data-s="3 grandes dragones | Big Three Dragons | 3 grandes dragones"><span class="nm">3 grandes dragones</span><span class="ex" data-ex="555z 666z 777z 123m 99p"></span></li>
+<li class="mrow" data-s="Todo verde | All Green | Too verde"><span class="nm">Too verde</span><span class="ex" data-ex="234s 234s 666s 888s 66z"></span></li>
+<li class="mrow" data-s="9 puertas | Nine Gates | 9 puertes"><span class="nm">9 puertes</span><span class="ex" data-ex="1112345678999m 5!m"></span></li>
+<li class="mrow" data-s="4 kong | Four Kongs | 4 kong"><span class="nm">4 kong</span><span class="ex" data-ex="2222m 5555p 8888s 6666z 11m"></span></li>
+<li class="mrow" data-s="7 pares puros consecutivos | Seven Shifted Pairs | 7 pareyes puros consecutivos"><span class="nm">7 pareyes puros consecutivos</span><span class="ex" data-ex="11m 22m 33m 44m 55m 66m 77m"></span></li>
+<li class="mrow" data-s="13 huérfanos | Thirteen Orphans | 13 güérfanos"><span class="nm">13 güérfanos</span><span class="ex" data-ex="19m 19p 19s 1234567z 1!m"></span></li>
+</ul></section>
+</div>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <ul><li><a href="https://chat.whatsapp.com/BsMiqfInUcT1ZwMMLxBw3r" target="_blank" rel="noopener noreferrer">WhatsApp<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a></li><li><a href="https://www.instagram.com/mahjongasturias/" target="_blank" rel="noopener noreferrer">Instagram<span class="sr-only"> (ábrese nuna pestaña nueva)</span></a></li><li><a href="mailto:mahjongasturias@gmail.com">mahjongasturias@gmail.com</a></li></ul>
+    <p>Asociación afiliada a la Federación Española de Mahjong.</p>
+    <p class="license">© 2026 Mahjong Asturias. Testos ya imáxenes propies baxo llicencia <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" target="_blank" rel="noopener noreferrer license">CC BY-NC-SA 4.0<span class="sr-only"> (ábrese nuna llingüeta nueva)</span></a>. Los logotipos son de los sos dueños.</p>
+  </div>
+</footer>
+<script src="/js/main.js" defer></script>
+<script src="/js/tiles.js" defer></script>
+<script src="/js/mcr-list.js" defer></script>
+</body>
+</html>

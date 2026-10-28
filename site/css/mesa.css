@@ -45,6 +45,11 @@ html, body {
   cursor: pointer;
 }
 #bar a:hover, #bar button:hover { background: rgba(255, 255, 255, 0.3); }
+#bar button[aria-pressed="true"] {
+  background: rgba(255, 255, 255, 0.85);
+  color: #17613a;
+  border-color: #fff;
+}
 #bar a:focus-visible, #bar button:focus-visible {
   outline: 3px solid #e8b923;
   outline-offset: 2px;

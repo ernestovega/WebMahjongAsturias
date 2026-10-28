@@ -210,4 +210,46 @@
     <xhtml:link rel="alternate" hreflang="ast" href="https://www.mahjongasturias.es/ast/deprender/duplicate/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mahjongasturias.es/aprender/duplicate/"/>
   </url>
+  <url>
+    <loc>https://www.mahjongasturias.es/aprender/manos-mcr/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mahjongasturias.es/aprender/manos-mcr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mahjongasturias.es/en/learn/mcr-hands/"/>
+    <xhtml:link rel="alternate" hreflang="ast" href="https://www.mahjongasturias.es/ast/deprender/manes-mcr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mahjongasturias.es/aprender/manos-mcr/"/>
+  </url>
+  <url>
+    <loc>https://www.mahjongasturias.es/en/learn/mcr-hands/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mahjongasturias.es/aprender/manos-mcr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mahjongasturias.es/en/learn/mcr-hands/"/>
+    <xhtml:link rel="alternate" hreflang="ast" href="https://www.mahjongasturias.es/ast/deprender/manes-mcr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mahjongasturias.es/aprender/manos-mcr/"/>
+  </url>
+  <url>
+    <loc>https://www.mahjongasturias.es/ast/deprender/manes-mcr/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mahjongasturias.es/aprender/manos-mcr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mahjongasturias.es/en/learn/mcr-hands/"/>
+    <xhtml:link rel="alternate" hreflang="ast" href="https://www.mahjongasturias.es/ast/deprender/manes-mcr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mahjongasturias.es/aprender/manos-mcr/"/>
+  </url>
+  <url>
+    <loc>https://www.mahjongasturias.es/aprender/yaku-riichi/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mahjongasturias.es/aprender/yaku-riichi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mahjongasturias.es/en/learn/riichi-yaku/"/>
+    <xhtml:link rel="alternate" hreflang="ast" href="https://www.mahjongasturias.es/ast/deprender/yaku-riichi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mahjongasturias.es/aprender/yaku-riichi/"/>
+  </url>
+  <url>
+    <loc>https://www.mahjongasturias.es/en/learn/riichi-yaku/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mahjongasturias.es/aprender/yaku-riichi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mahjongasturias.es/en/learn/riichi-yaku/"/>
+    <xhtml:link rel="alternate" hreflang="ast" href="https://www.mahjongasturias.es/ast/deprender/yaku-riichi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mahjongasturias.es/aprender/yaku-riichi/"/>
+  </url>
+  <url>
+    <loc>https://www.mahjongasturias.es/ast/deprender/yaku-riichi/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mahjongasturias.es/aprender/yaku-riichi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mahjongasturias.es/en/learn/riichi-yaku/"/>
+    <xhtml:link rel="alternate" hreflang="ast" href="https://www.mahjongasturias.es/ast/deprender/yaku-riichi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mahjongasturias.es/aprender/yaku-riichi/"/>
+  </url>
 </urlset>
