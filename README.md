@@ -27,9 +27,23 @@ Each page is a folder with an `index.html` file. Edit the three language version
 ## Commands
 
 - Run locally: `python3 -m http.server 8765 --directory site` and open http://localhost:8765
-- Deploy to Firebase Hosting: `firebase deploy --only hosting`
+- Check the site: `node scripts/check-site.mjs`. It checks internal links and anchors, the sitemap, the service worker cache list, JS syntax, JSON files and basic HTML (doctype, `lang`, `<title>`, duplicate ids).
+- Deploy to Firebase Hosting by hand: `firebase deploy --only hosting`
 
 `firebase.json` publishes the `site/` folder. It does not run Gradle.
+
+## Workflow (GitHub Actions)
+
+`main` only takes changes through pull requests.
+
+1. Make a branch and open a pull request to `main`.
+2. **CI** (`.github/workflows/ci.yml`) runs `scripts/check-site.mjs`. The pull request can not merge until it passes.
+3. **PR preview** (`.github/workflows/preview.yml`) publishes the pull request to a temporary Firebase URL and comments the link on the pull request. The link expires after 7 days.
+4. Merge. **Deploy** (`.github/workflows/deploy.yml`) checks the site again and publishes it to https://www.mahjongasturias.es.
+
+To deploy again without changes, run **Deploy to Firebase Hosting** from the Actions tab.
+
+The deploy uses the repository secret `FIREBASE_SERVICE_ACCOUNT_WEBMAHJONGASTURIAS` (a JSON key of a Google Cloud service account with Firebase Hosting Admin access).
 
 ## Folders
 

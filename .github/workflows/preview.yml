@@ -1,0 +1,40 @@
+# Publishes each pull request to a temporary Firebase preview URL (expires after 7 days)
+# and posts the link as a comment on the pull request.
+name: PR preview
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: write
+  checks: write
+
+concurrency:
+  group: preview-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  preview:
+    # Pull requests from forks do not get the secret.
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - name: Look for the Firebase secret
+        id: secret
+        env:
+          SA: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_WEBMAHJONGASTURIAS }}
+        run: |
+          if [ -n "$SA" ]; then echo "ok=true" >> "$GITHUB_OUTPUT"; else
+            echo "::warning::Secret FIREBASE_SERVICE_ACCOUNT_WEBMAHJONGASTURIAS is not set. Skipping preview."
+            echo "ok=false" >> "$GITHUB_OUTPUT"; fi
+      - uses: actions/checkout@v4
+        if: steps.secret.outputs.ok == 'true'
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        if: steps.secret.outputs.ok == 'true'
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_WEBMAHJONGASTURIAS }}
+          projectId: webmahjongasturias
+          expires: 7d
