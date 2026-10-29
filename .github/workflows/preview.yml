@@ -29,7 +29,7 @@ jobs:
           if [ -n "$SA" ]; then echo "ok=true" >> "$GITHUB_OUTPUT"; else
             echo "::warning::Secret FIREBASE_SERVICE_ACCOUNT_WEBMAHJONGASTURIAS is not set. Skipping preview."
             echo "ok=false" >> "$GITHUB_OUTPUT"; fi
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         if: steps.secret.outputs.ok == 'true'
       - uses: FirebaseExtended/action-hosting-deploy@v0
         if: steps.secret.outputs.ok == 'true'
