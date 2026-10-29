@@ -1,0 +1,22 @@
+# Runs on every pull request to main. Branch protection requires the "check-site" job.
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check-site:
+    name: check-site
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check links, HTML, JS and JSON in site/
+        run: node scripts/check-site.mjs
