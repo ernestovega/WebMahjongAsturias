@@ -308,31 +308,34 @@
   ["東", "南", "西", "北"].forEach(function (c, k) { add("w", k + 1, c, 4, 3, k); });
   ["中", "發", "白"].forEach(function (c, k) { add("d", k + 1, c, 4, 3, k + 4); });
   // Face down tile for hidden tiles. Its pile never runs out (see ensureBack).
-  var BACK = { kind: "x", n: 1, ch: "", copies: 1, col: 3, row: 7, base: 0 };
+  var BACK = { kind: "x", n: 1, ch: "", copies: 4, col: 3, row: 7, base: 0 };
   types.push(BACK);
+  // The 4 flowers and the 4 seasons share one pile of 8.
   ["梅", "蘭", "菊", "竹"].forEach(function (c, k) { add("f", k + 1, c, 1, 3, 8, k); });
-  ["春", "夏", "秋", "冬"].forEach(function (c, k) { add("t", k + 1, c, 1, 3, 9, k); });
+  ["春", "夏", "秋", "冬"].forEach(function (c, k) { add("t", k + 1, c, 1, 3, 8, 4 + k); });
 
   // The four columns go together on the right side.
-  // Below the dragons, column 3 has the face down tile, then the 4 flowers and the 4 seasons in two piles.
+  // Below the dragons, column 3 has the face down tiles, then the flowers and seasons.
   var tiles = [];
   var redTiles = [];
   var zTop = 1000;
 
-  function makeBack() {
+  function makeBack(copy) {
     var el = document.createElement("div");
     el.className = "tile back";
     el.title = tileName(BACK, false);
     table.appendChild(el);
-    var tile = { el: el, type: BACK, copy: 0, home: true, x: 0, y: 0 };
+    var tile = { el: el, type: BACK, copy: copy, home: true, x: 0, y: 0 };
     tiles.push(tile);
     return tile;
   }
 
-  // There is always one face down tile in its pile, ready to take.
+  // The face down pile always has its 4 tiles: one taken is replaced at once.
   function ensureBack() {
-    var ready = tiles.some(function (t) { return t.type === BACK && t.home; });
-    if (!ready) place(makeBack());
+    for (var c = 0; c < BACK.copies; c++) {
+      var ready = tiles.some(function (t) { return t.type === BACK && t.home && t.copy === c; });
+      if (!ready) place(makeBack(c));
+    }
   }
 
   types.forEach(function (type) {
@@ -377,20 +380,20 @@
 
   var W = 0, H = 0, tw = 40, th = 52, offset = 3, gap = 8;
   var barH = 0;
-  var rows = 9; // rows of piles in use: 9, or 10 with the flowers and seasons
 
   function homePos(t) {
     var col = t.type.col;
     var step = tw + offset * 3 + gap;
     var x = W - gap - (4 - col) * step; // all four columns from the right edge
     var y = barH + gap + t.type.row * (th + gap);
-    return { x: x + t.copy * offset, y: y - t.copy * offset };
+    // The pile of 8 flowers and seasons uses half the step, so it is as tall as the others.
+    var o = t.type.kind === "f" || t.type.kind === "t" ? offset / 2 : offset;
+    return { x: x + t.copy * o, y: y - t.copy * o };
   }
 
   function place(t) {
     var p = t.home ? homePos(t) : t;
     t.el.style.transform = "translate(" + p.x + "px," + p.y + "px)";
-    if (t.type === BACK) t.el.classList.toggle("pile", t.home);
     if (t.home) {
       t.x = p.x;
       t.y = p.y;
@@ -405,7 +408,7 @@
     H = rect.height;
     var bar = document.getElementById("bar");
     barH = bar ? bar.offsetHeight : 0;
-    var byHeight = (H - barH - gap * (rows + 1)) / (rows * RATIO + 0.1);
+    var byHeight = (H - barH - gap * 10) / (9 * RATIO + 0.1);
     var byWidth = (W * 0.55 - 5 * gap) / 4.6;
     tw = Math.floor(Math.max(24, Math.min(64, byHeight, byWidth)));
     th = Math.round(tw * RATIO);
@@ -499,7 +502,7 @@
   function sendHome(t) {
     if (selected.indexOf(t) >= 0) select(selected.filter(function (o) { return o !== t; }));
     if (t.type === BACK && !t.home) {
-      // The pile already has a face down tile, so this one goes away.
+      // The pile is always full, so this one goes away.
       tiles.splice(tiles.indexOf(t), 1);
       t.el.remove();
       if (lastTouched === t) lastTouched = null;
@@ -698,8 +701,6 @@
         t.el.style.display = flowersOn ? "" : "none";
       });
       if (!flowersOn && lastTouched && lastTouched.home) lastTouched = null;
-      rows = flowersOn ? 10 : 9;
-      layout();
     };
     flowerBtn.addEventListener("click", function () {
       flowersOn = !flowersOn;
