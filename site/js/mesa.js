@@ -265,21 +265,24 @@
       w: ["Viento Este", "Viento Sur", "Viento Oeste", "Viento Norte"],
       d: ["Dragón rojo", "Dragón verde", "Dragón blanco"],
       f: ["Ciruelo", "Orquídea", "Crisantemo", "Bambú"],
-      t: ["Primavera", "Verano", "Otoño", "Invierno"]
+      t: ["Primavera", "Verano", "Otoño", "Invierno"],
+      x: "Ficha oculta"
     },
     ast: {
       m: "{n} de caracteres", p: "{n} de círculos", s: "{n} de bambús",
       w: ["Vientu Este", "Vientu Sur", "Vientu Oeste", "Vientu Norte"],
       d: ["Dragón royu", "Dragón verde", "Dragón blancu"],
       f: ["Ciruelu", "Orquídea", "Crisantemu", "Bambú"],
-      t: ["Primavera", "Branu", "Seronda", "Iviernu"]
+      t: ["Primavera", "Branu", "Seronda", "Iviernu"],
+      x: "Fiche tapada"
     },
     en: {
       m: "{n} of Characters", p: "{n} of Circles", s: "{n} of Bamboo",
       w: ["East Wind", "South Wind", "West Wind", "North Wind"],
       d: ["Red Dragon", "Green Dragon", "White Dragon"],
       f: ["Plum", "Orchid", "Chrysanthemum", "Bamboo"],
-      t: ["Spring", "Summer", "Autumn", "Winter"]
+      t: ["Spring", "Summer", "Autumn", "Winter"],
+      x: "Hidden tile"
     }
   };
 
@@ -304,16 +307,36 @@
   for (i = 1; i <= 9; i++) add("s", i, "", 4, 2, i - 1);
   ["東", "南", "西", "北"].forEach(function (c, k) { add("w", k + 1, c, 4, 3, k); });
   ["中", "發", "白"].forEach(function (c, k) { add("d", k + 1, c, 4, 3, k + 4); });
-  ["梅", "蘭", "菊", "竹"].forEach(function (c, k) { add("f", k + 1, c, 1, 3, 7, k); });
-  ["春", "夏", "秋", "冬"].forEach(function (c, k) { add("t", k + 1, c, 1, 3, 8, k); });
+  // Face down tile for hidden tiles. Its pile never runs out (see ensureBack).
+  var BACK = { kind: "x", n: 1, ch: "", copies: 1, col: 3, row: 7, base: 0 };
+  types.push(BACK);
+  ["梅", "蘭", "菊", "竹"].forEach(function (c, k) { add("f", k + 1, c, 1, 3, 8, k); });
+  ["春", "夏", "秋", "冬"].forEach(function (c, k) { add("t", k + 1, c, 1, 3, 9, k); });
 
   // The four columns go together on the right side.
-  // The 4 flowers and the 4 seasons make two piles at the end of column 3.
+  // Below the dragons, column 3 has the face down tile, then the 4 flowers and the 4 seasons in two piles.
   var tiles = [];
   var redTiles = [];
   var zTop = 1000;
 
+  function makeBack() {
+    var el = document.createElement("div");
+    el.className = "tile back";
+    el.title = tileName(BACK, false);
+    table.appendChild(el);
+    var tile = { el: el, type: BACK, copy: 0, home: true, x: 0, y: 0 };
+    tiles.push(tile);
+    return tile;
+  }
+
+  // There is always one face down tile in its pile, ready to take.
+  function ensureBack() {
+    var ready = tiles.some(function (t) { return t.type === BACK && t.home; });
+    if (!ready) place(makeBack());
+  }
+
   types.forEach(function (type) {
+    if (type === BACK) return;
     // One of the four 5s of each suit is red (Riichi). It is the top tile of the pile.
     var hasRed = type.n === 5 && "mps".indexOf(type.kind) >= 0;
     for (var c = 0; c < type.copies; c++) {
@@ -338,6 +361,8 @@
     }
   });
 
+  ensureBack();
+
   // ---------- Red fives switch ----------
 
   function setRedFives(on) {
@@ -352,6 +377,7 @@
 
   var W = 0, H = 0, tw = 40, th = 52, offset = 3, gap = 8;
   var barH = 0;
+  var rows = 9; // rows of piles in use: 9, or 10 with the flowers and seasons
 
   function homePos(t) {
     var col = t.type.col;
@@ -364,6 +390,7 @@
   function place(t) {
     var p = t.home ? homePos(t) : t;
     t.el.style.transform = "translate(" + p.x + "px," + p.y + "px)";
+    if (t.type === BACK) t.el.classList.toggle("pile", t.home);
     if (t.home) {
       t.x = p.x;
       t.y = p.y;
@@ -378,7 +405,7 @@
     H = rect.height;
     var bar = document.getElementById("bar");
     barH = bar ? bar.offsetHeight : 0;
-    var byHeight = (H - barH - gap * 10) / (9 * RATIO + 0.1);
+    var byHeight = (H - barH - gap * (rows + 1)) / (rows * RATIO + 0.1);
     var byWidth = (W * 0.55 - 5 * gap) / 4.6;
     tw = Math.floor(Math.max(24, Math.min(64, byHeight, byWidth)));
     th = Math.round(tw * RATIO);
@@ -452,6 +479,7 @@
     t.el.style.zIndex = ++zTop;
     place(t);
     lastTouched = t;
+    if (t.type === BACK) ensureBack();
   }
 
   function tileOf(el) {
@@ -469,8 +497,15 @@
   }
 
   function sendHome(t) {
-    t.home = true;
     if (selected.indexOf(t) >= 0) select(selected.filter(function (o) { return o !== t; }));
+    if (t.type === BACK && !t.home) {
+      // The pile already has a face down tile, so this one goes away.
+      tiles.splice(tiles.indexOf(t), 1);
+      t.el.remove();
+      if (lastTouched === t) lastTouched = null;
+      return;
+    }
+    t.home = true;
     place(t);
   }
 
@@ -553,7 +588,9 @@
     var rect = table.getBoundingClientRect();
     var g = drag.group, st = drag.starts;
     var li = g.indexOf(t);
+    var fromPile = t.home;
     t.home = false;
+    if (fromPile && t.type === BACK) ensureBack();
     var x = e.clientX - rect.left - drag.dx;
     var y = e.clientY - rect.top - drag.dy;
     if (!e.altKey) {
@@ -614,7 +651,7 @@
   if (clear) {
     clear.addEventListener("click", function () {
       select([]);
-      tiles.forEach(sendHome);
+      tiles.slice().forEach(sendHome);
       lastTouched = null;
     });
   }
@@ -661,6 +698,8 @@
         t.el.style.display = flowersOn ? "" : "none";
       });
       if (!flowersOn && lastTouched && lastTouched.home) lastTouched = null;
+      rows = flowersOn ? 10 : 9;
+      layout();
     };
     flowerBtn.addEventListener("click", function () {
       flowersOn = !flowersOn;
