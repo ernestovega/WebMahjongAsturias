@@ -127,11 +127,22 @@
   Array.prototype.forEach.call(items, function (item) {
     var button = item.querySelector(".sub-toggle");
     if (!button) return;
-    button.addEventListener("click", function () {
+    function toggle() {
       var open = !item.classList.contains("open");
       item.classList.toggle("open", open);
       button.setAttribute("aria-expanded", open ? "true" : "false");
-    });
+    }
+    button.addEventListener("click", toggle);
+    // In the compact menu (phones) the parent entry only opens and closes the submenu.
+    // Its page is the first entry of the submenu.
+    var link = item.querySelector(":scope > a");
+    if (link) {
+      link.addEventListener("click", function (e) {
+        if (!document.documentElement.classList.contains("compact")) return;
+        e.preventDefault();
+        toggle();
+      });
+    }
     item.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && item.classList.contains("open")) {
         close(item);
