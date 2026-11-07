@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
 <title>Mesa de ejercicio de Mahjong</title>
 <meta name="description" content="Mesa virtual para practicar y enseñar Mahjong. Arrastra las fichas y júntalas con el imán para formar combinaciones.">
-<meta name="theme-color" content="#17613a">
+<meta name="theme-color" content="#1d4a80">
 <link rel="canonical" href="https://www.mahjongasturias.es/aprender/mesa/">
 <link rel="alternate" hreflang="es" href="https://www.mahjongasturias.es/aprender/mesa/">
 <link rel="alternate" hreflang="en" href="https://www.mahjongasturias.es/en/learn/table/">
@@ -28,6 +28,9 @@
     <button type="button" id="clear">Vaciar mesa</button>
     <button type="button" id="red-fives" aria-pressed="false">Cincos rojos</button>
     <button type="button" id="flowers" aria-pressed="false">Flores y estaciones</button>
+    <span class="sizes" role="group" aria-label="Tamaño de las fichas">Tamaño
+      <button type="button" data-size="s" aria-pressed="false" aria-label="Fichas pequeñas" title="Fichas pequeñas">P</button><button type="button" data-size="m" aria-pressed="true" aria-label="Fichas medianas" title="Fichas medianas">M</button><button type="button" data-size="l" aria-pressed="false" aria-label="Fichas grandes" title="Fichas grandes">G</button>
+    </span>
     <button type="button" id="fullscreen">Pantalla completa</button>
     <span class="langs"><a class="lang" href="/en/learn/table/" hreflang="en" lang="en" aria-label="English" title="English"><svg class="flag" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" fill="#012169"/><path d="M0 0L60 40M60 0L0 40" stroke="#fff" stroke-width="8"/><path d="M0 0L60 40M60 0L0 40" stroke="#C8102E" stroke-width="3"/><path d="M30 0V40M0 20H60" stroke="#fff" stroke-width="12"/><path d="M30 0V40M0 20H60" stroke="#C8102E" stroke-width="7"/></svg></a><a class="lang" href="/ast/deprender/mesa/" hreflang="ast" lang="ast" aria-label="Asturianu" title="Asturianu"><svg class="flag" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" fill="#0B4EA2"/><polygon points="24,3 36,3 33,17 47,14 47,26 33,23 36,37 24,37 27,23 13,26 13,14 27,17" fill="#FFD500"/></svg></a></span>
   </div>
@@ -40,6 +43,7 @@
     <li>Arrastra en la mesa vacía para seleccionar varias fichas y moverlas juntas.</li>
     <li>Haz doble clic (o doble toque) en una ficha de las pilas para ponerla junto a la última ficha que tocaste.</li>
     <li>Haz doble clic (o doble toque) en una ficha de la mesa para devolverla a su pila.</li>
+    <li>La ficha boca abajo representa una ficha oculta: siempre queda otra en su pila.</li>
     <li>Mantén pulsada la tecla Alt para desactivar el imán.</li>
   </ul>
 </div>

@@ -2,10 +2,20 @@
   var menuButton = document.getElementById("menu-toggle");
   var menu = document.getElementById("site-menu");
   if (menuButton && menu) {
+    // The open menu scrolls on its own when it is taller than the screen,
+    // so the page behind it does not move.
+    var fitMenu = function () {
+      if (!menu.classList.contains("open")) return;
+      var top = Math.max(0, menu.getBoundingClientRect().top);
+      menu.style.maxHeight = (window.innerHeight - top) + "px";
+    };
     var setMenu = function (open) {
       menu.classList.toggle("open", open);
       menuButton.setAttribute("aria-expanded", open ? "true" : "false");
+      if (open) fitMenu(); else menu.style.maxHeight = "";
     };
+    window.addEventListener("resize", fitMenu);
+    window.addEventListener("scroll", fitMenu, { passive: true });
     menuButton.addEventListener("click", function () {
       setMenu(!menu.classList.contains("open"));
     });
@@ -127,11 +137,21 @@
   Array.prototype.forEach.call(items, function (item) {
     var button = item.querySelector(".sub-toggle");
     if (!button) return;
-    button.addEventListener("click", function () {
+    function toggle() {
       var open = !item.classList.contains("open");
       item.classList.toggle("open", open);
       button.setAttribute("aria-expanded", open ? "true" : "false");
-    });
+    }
+    button.addEventListener("click", toggle);
+    // The parent entry only opens and closes the submenu.
+    // Its page is the first entry of the submenu.
+    var link = item.querySelector(":scope > a");
+    if (link) {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        toggle();
+      });
+    }
     item.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && item.classList.contains("open")) {
         close(item);
