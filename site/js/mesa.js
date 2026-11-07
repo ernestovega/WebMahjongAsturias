@@ -378,14 +378,19 @@
 
   // ---------- Layout ----------
 
-  var W = 0, H = 0, tw = 40, th = 52, offset = 3, gap = 8;
+  // tw/th: tiles on the table. ptw/pth: tiles in the piles, which must fit the screen.
+  var W = 0, H = 0, tw = 40, th = 52, ptw = 40, pth = 52, offset = 3, gap = 8;
   var barH = 0;
+  var SIZES = { s: 0.75, m: 1, l: 1.3 };
+  var size = "m";
+  try { size = localStorage.getItem("mesa-size") || "m"; } catch (e) {}
+  if (!SIZES[size]) size = "m";
 
   function homePos(t) {
     var col = t.type.col;
-    var step = tw + offset * 3 + gap;
+    var step = ptw + offset * 3 + gap;
     var x = W - gap - (4 - col) * step; // all four columns from the right edge
-    var y = barH + gap + t.type.row * (th + gap);
+    var y = barH + gap + t.type.row * (pth + gap);
     // The pile of 8 flowers and seasons uses half the step, so it is as tall as the others.
     var o = t.type.kind === "f" || t.type.kind === "t" ? offset / 2 : offset;
     return { x: x + t.copy * o, y: y - t.copy * o };
@@ -393,6 +398,14 @@
 
   function place(t) {
     var p = t.home ? homePos(t) : t;
+    // Tiles in the piles have their own size; tiles on the table use the table size.
+    if (t.home) {
+      t.el.style.setProperty("--tw", ptw + "px");
+      t.el.style.setProperty("--th", pth + "px");
+    } else {
+      t.el.style.removeProperty("--tw");
+      t.el.style.removeProperty("--th");
+    }
     t.el.style.transform = "translate(" + p.x + "px," + p.y + "px)";
     if (t.home) {
       t.x = p.x;
@@ -410,9 +423,15 @@
     barH = bar ? bar.offsetHeight : 0;
     var byHeight = (H - barH - gap * 10) / (9 * RATIO + 0.1);
     var byWidth = (W * 0.55 - 5 * gap) / 4.6;
-    tw = Math.floor(Math.max(24, Math.min(64, byHeight, byWidth)));
+    // The size choice scales the tiles. The piles grow only while they still fit
+    // the screen; the tiles on the table always follow the choice.
+    var k0 = SIZES[size] || 1;
+    var base = Math.max(24, Math.min(64, byHeight, byWidth));
+    ptw = Math.floor(Math.max(24 * Math.min(1, k0), Math.min(64 * k0, byHeight, byWidth * k0)));
+    pth = Math.round(ptw * RATIO);
+    tw = Math.floor(Math.max(20, Math.min(base * k0, (H - barH) / (2 * RATIO))));
     th = Math.round(tw * RATIO);
-    offset = Math.max(2, Math.round(tw / 20));
+    offset = Math.max(2, Math.round(ptw / 20));
     table.style.setProperty("--tw", tw + "px");
     table.style.setProperty("--th", th + "px");
     var k = tw / oldTw;
@@ -709,6 +728,23 @@
     });
     applyFlowers();
   }
+
+  // Tile size: small, medium or large. The choice is remembered.
+  var sizeBtns = Array.prototype.slice.call(document.querySelectorAll("#bar [data-size]"));
+  var applySize = function () {
+    sizeBtns.forEach(function (b) {
+      b.setAttribute("aria-pressed", b.getAttribute("data-size") === size ? "true" : "false");
+    });
+  };
+  sizeBtns.forEach(function (b) {
+    b.addEventListener("click", function () {
+      size = b.getAttribute("data-size");
+      try { localStorage.setItem("mesa-size", size); } catch (e) {}
+      applySize();
+      layout();
+    });
+  });
+  applySize();
 
   // ---------- Help ----------
 
