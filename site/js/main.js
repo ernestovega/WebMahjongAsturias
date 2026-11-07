@@ -133,12 +133,11 @@
       button.setAttribute("aria-expanded", open ? "true" : "false");
     }
     button.addEventListener("click", toggle);
-    // In the compact menu (phones) the parent entry only opens and closes the submenu.
+    // The parent entry only opens and closes the submenu.
     // Its page is the first entry of the submenu.
     var link = item.querySelector(":scope > a");
     if (link) {
       link.addEventListener("click", function (e) {
-        if (!document.documentElement.classList.contains("compact")) return;
         e.preventDefault();
         toggle();
       });
