@@ -2,10 +2,20 @@
   var menuButton = document.getElementById("menu-toggle");
   var menu = document.getElementById("site-menu");
   if (menuButton && menu) {
+    // The open menu scrolls on its own when it is taller than the screen,
+    // so the page behind it does not move.
+    var fitMenu = function () {
+      if (!menu.classList.contains("open")) return;
+      var top = Math.max(0, menu.getBoundingClientRect().top);
+      menu.style.maxHeight = (window.innerHeight - top) + "px";
+    };
     var setMenu = function (open) {
       menu.classList.toggle("open", open);
       menuButton.setAttribute("aria-expanded", open ? "true" : "false");
+      if (open) fitMenu(); else menu.style.maxHeight = "";
     };
+    window.addEventListener("resize", fitMenu);
+    window.addEventListener("scroll", fitMenu, { passive: true });
     menuButton.addEventListener("click", function () {
       setMenu(!menu.classList.contains("open"));
     });

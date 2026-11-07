@@ -182,6 +182,7 @@ html.compact .tools { gap: 2px; }
 html.compact .nav { margin: 0 -16px; }
 html.compact.js .nav ul { display: none; }
 html.compact.js .nav ul.open { display: block; border-top: 1px solid var(--border); }
+html.compact.js .nav > ul.open { overflow-y: auto; overscroll-behavior: contain; }
 html.compact .nav ul { display: block; }
 html.compact .nav a {
     padding: 14px 16px;
