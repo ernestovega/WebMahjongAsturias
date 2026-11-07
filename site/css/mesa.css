@@ -54,6 +54,10 @@ html, body {
   outline: 3px solid #e8b923;
   outline-offset: 2px;
 }
+#bar .sizes { display: flex; align-items: center; gap: 0; }
+#bar .sizes button { min-width: 34px; padding: 6px 8px; border-radius: 0; margin-left: -1px; }
+#bar .sizes button:first-child { margin-left: 8px; border-radius: 6px 0 0 6px; }
+#bar .sizes button:last-child { border-radius: 0 6px 6px 0; }
 #bar .langs { display: flex; gap: 8px; }
 #bar a.lang { padding: 6px 8px; line-height: 0; }
 #bar .flag {

@@ -1,4 +1,4 @@
-var CACHE = "mesa-v3";
+var CACHE = "mesa-v4";
 var URLS = [
   "/aprender/mesa/",
   "/en/learn/table/",
