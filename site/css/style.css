@@ -715,14 +715,14 @@ figure.pic.aside { float: right; width: 300px; margin: 4px 0 12px 22px; }
 }
 
 /* Small logo in the menu row, shown when only the sticky menu is visible (wide screens) */
-.nav-logo { display: none; }
+.site-header .nav a.nav-logo { display: none; } /* beats the mobile ".nav a { display: block }" rules */
 /* The logo sits outside the menu column, so it never moves the buttons. */
 @media (min-width: 761px) {
   /* Buttons keep one line. The group grows wider than the text column if needed and stays centered. */
 html:not(.compact) .nav { position: relative; width: max-content; left: 50%; transform: translateX(-50%); }
 html:not(.compact) .nav > ul { flex-wrap: nowrap; }
 html:not(.compact) .nav > ul > li { flex: none; white-space: nowrap; }
-html:not(.compact) .nav .nav-logo {
+html:not(.compact) .site-header .nav a.nav-logo {
     display: block;
     position: absolute;
     right: 100%;
@@ -744,7 +744,7 @@ html:not(.compact) .site-header.stuck .nav .nav-logo {
   }
 }
 @media (min-width: 761px) and (max-width: 839px) {
-  html:not(.compact) .nav .nav-logo { display: none; }
+  html:not(.compact) .site-header .nav a.nav-logo { display: none; }
 }
 
 /* Flags and theme button: they sit right of the menu, mirroring the small logo. */
