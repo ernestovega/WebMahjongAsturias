@@ -28,6 +28,8 @@ Each page is a folder with an `index.html` file. Edit the three language version
 
 - Run locally: `python3 -m http.server 8765 --directory site` and open http://localhost:8765
 - Check the site: `node scripts/check-site.mjs`. It checks internal links and anchors, the sitemap, the service worker cache list, JS syntax, JSON files and basic HTML (doctype, `lang`, `<title>`, duplicate ids).
+- Check the languages: `node scripts/check-i18n.mjs`. Every page must have its es, ast and en versions, with `hreflang` links that point to each other, flag links to the other two versions and the same menu entries in the same order.
+- Browser tests: `npm ci`, `npx playwright install chromium` once, then `npx playwright test`. They run on a desktop and a phone screen: every page loads without JS errors, broken own files or sideways scroll; the menu, the "Aprender" submenu and the dark theme work; the practice table loads all tiles, drags them, and remembers the tile size, red fives and flowers. Tests live in `tests/e2e/`.
 - Deploy to Firebase Hosting by hand: `firebase deploy --only hosting`
 
 `firebase.json` publishes the `site/` folder. It does not run Gradle.
@@ -37,7 +39,7 @@ Each page is a folder with an `index.html` file. Edit the three language version
 `main` only takes changes through pull requests.
 
 1. Make a branch and open a pull request to `main`.
-2. **CI** (`.github/workflows/ci.yml`) runs `scripts/check-site.mjs`. The pull request can not merge until it passes.
+2. **CI** (`.github/workflows/ci.yml`) runs `scripts/check-site.mjs` and `scripts/check-i18n.mjs` (job `check-site`) and the browser tests (job `browser-tests`). The pull request can not merge until `check-site` passes; add `browser-tests` to the required checks of the ruleset to block on it too.
 3. **PR preview** (`.github/workflows/preview.yml`) publishes the pull request to a temporary Firebase URL and comments the link on the pull request. The link expires after 7 days.
 4. Merge. **Deploy** (`.github/workflows/deploy.yml`) checks the site again and publishes it to https://www.mahjongasturias.es.
 

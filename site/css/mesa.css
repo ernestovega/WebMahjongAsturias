@@ -201,3 +201,71 @@ html, body {
     0 4px 0 rgba(0, 0, 0, 0.35),
     0 14px 18px rgba(0, 0, 0, 0.45);
 }
+
+.tiles-msg {
+  position: absolute;
+  top: 64px;
+  left: 16px;
+  z-index: 100003;
+  max-width: min(360px, calc(100% - 16px));
+  margin: 0;
+  padding: 10px 14px;
+  border: 1px solid #e3a0aa;
+  border-radius: 8px;
+  background: #fde4e7;
+  color: #8a1c2b;
+  font-size: 15px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+}
+/* Small arrow that points up to the field. */
+.tiles-msg::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: var(--arrow, 24px);
+  width: 12px;
+  height: 12px;
+  background: #fde4e7;
+  border-left: 1px solid #e3a0aa;
+  border-top: 1px solid #e3a0aa;
+  transform: rotate(45deg);
+}
+#bar .code input[aria-invalid="true"] {
+  background: #fde4e7;
+  border-color: #d64555;
+  color: #8a1c2b;
+}
+#bar .code { display: flex; align-items: center; margin: 0; }
+#bar .code input {
+  width: 10em;
+  min-width: 0;
+  padding: 6px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-right: 0;
+  border-radius: 6px 0 0 6px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #14243a;
+  font: 15px ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  user-select: text;
+  -webkit-user-select: text;
+}
+#bar .code input:focus-visible { outline: 3px solid #e8b923; outline-offset: 0; }
+#bar .code button { border-radius: 0 6px 6px 0; }
+
+/* While typing a tile code, each pile shows its code (1m, Ew, Rd, X...). */
+#table.show-codes .tile.home[data-code]:not([data-code=""])::after {
+  content: attr(data-code);
+  position: absolute;
+  left: 50%;
+  bottom: 4%;
+  transform: translateX(-50%);
+  padding: 0 0.3em;
+  border-radius: 0.3em;
+  background: rgba(20, 36, 58, 0.88);
+  color: #fff;
+  font: 700 calc(var(--tw, 40px) * 0.32) / 1.25 ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  white-space: nowrap;
+  pointer-events: none;
+}
+#table.show-codes .tile.back.home[data-code]::after { bottom: 35%; }

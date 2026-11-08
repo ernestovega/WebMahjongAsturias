@@ -1,0 +1,12 @@
+{
+  "name": "webmahjongasturias-site-tests",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node scripts/check-site.mjs && node scripts/check-i18n.mjs",
+    "test:e2e": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0"
+  }
+}

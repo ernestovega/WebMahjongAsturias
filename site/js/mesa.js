@@ -396,8 +396,20 @@
     return { x: x + t.copy * o, y: y - t.copy * o };
   }
 
+  // The code of a tile for the field on the bar (1m, Ew, Rd, X...). Flowers have none.
+  function codeOf(type) {
+    if ("mps".indexOf(type.kind) >= 0) return type.n + type.kind;
+    if (type.kind === "w") return "ESWN".charAt(type.n - 1) + "w";
+    if (type.kind === "d") return "RGW".charAt(type.n - 1) + "d";
+    if (type.kind === "x") return "X";
+    return "";
+  }
+
   function place(t) {
     var p = t.home ? homePos(t) : t;
+    // Tiles in the piles show their code while the field on the bar has the focus.
+    t.el.classList.toggle("home", t.home);
+    if (!("code" in t.el.dataset)) t.el.dataset.code = codeOf(t.type);
     // Tiles in the piles have their own size; tiles on the table use the table size.
     if (t.home) {
       t.el.style.setProperty("--tw", ptw + "px");
@@ -520,8 +532,8 @@
 
   function sendHome(t) {
     if (selected.indexOf(t) >= 0) select(selected.filter(function (o) { return o !== t; }));
-    if (t.type === BACK && !t.home) {
-      // The pile is always full, so this one goes away.
+    if ((t.type === BACK || t.extra) && !t.home) {
+      // The pile is always full (or this is an extra copy), so this one goes away.
       tiles.splice(tiles.indexOf(t), 1);
       t.el.remove();
       if (lastTouched === t) lastTouched = null;
@@ -774,8 +786,224 @@
     }, true);
   }
 
+  // An extra copy of a tile, beyond the 4 of the set. It goes away when sent home.
+  function makeExtra(type) {
+    var el = document.createElement("div");
+    el.className = "tile";
+    el.title = tileName(type, false);
+    el.innerHTML = '<svg viewBox="0 0 60 80" aria-hidden="true" focusable="false">' + face(type, false) + "</svg>";
+    table.appendChild(el);
+    var tile = { el: el, type: type, copy: type.copies - 1 + type.base, home: true, x: 0, y: 0, extra: true };
+    tiles.push(tile);
+    return tile;
+  }
+
+  // ---------- Tiles from the URL (?tiles=) ----------
+  // Suits: numbers and then m (characters), p (circles) or s (bamboo): 123m456p789s.
+  // Honors: one capital letter per tile and then w (winds) or d (dragons):
+  // EESWNw = 2 East, South, West, North. WRGd = white, red and green dragon.
+  // Commas start a new row: 123m,456p,EEEw. X alone is a face down tile: X123mX.
+
+  var HONOR_LETTERS = { w: "ESWN", d: "RGW" }; // same order as the types: 1 2 3 4
+
+  var TILE_MSG = {
+    es: {
+      bad: "No se entiende «{s}». Ejemplo: 123m456p789sEEw",
+      many: "Hay más de 4 fichas iguales en una fila ({name})."
+    },
+    ast: {
+      bad: "Nun s'entiende «{s}». Exemplu: 123m456p789sEEw",
+      many: "Hai más de 4 fiches iguales nuna fila ({name})."
+    },
+    en: {
+      bad: "Could not read “{s}”. Example: 123m456p789sEEw",
+      many: "More than 4 equal tiles in one row ({name})."
+    }
+  };
+
+  function typeOf(kind, n) {
+    for (var k = 0; k < types.length; k++) {
+      if (types[k].kind === kind && types[k].n === n) return types[k];
+    }
+    return null;
+  }
+
+  // One row of the code (no commas). Returns { list: [type, ...] } or { error: message }.
+  function parseRow(code) {
+    var msg = TILE_MSG[lang] || TILE_MSG.es;
+    var list = [];
+    var re = /([1-9]+)([mps])|([A-WYZ]+)([wd])|X/g;
+    var pos = 0, m;
+    while ((m = re.exec(code)) !== null) {
+      if (m.index !== pos) break;
+      pos = re.lastIndex;
+      if (m[0] === "X") {
+        list.push(BACK);
+      } else if (m[1]) {
+        for (var a = 0; a < m[1].length; a++) list.push(typeOf(m[2], +m[1].charAt(a)));
+      } else {
+        for (var b = 0; b < m[3].length; b++) {
+          var n = HONOR_LETTERS[m[4]].indexOf(m[3].charAt(b)) + 1;
+          if (!n) return { error: msg.bad.replace("{s}", m[0]) };
+          list.push(typeOf(m[4], n));
+        }
+      }
+    }
+    if (pos !== code.length) return { error: msg.bad.replace("{s}", code.slice(pos)) };
+    return { list: list };
+  }
+
+  // The whole code: rows separated by commas ("123m,234m" = 2 rows).
+  // Returns { rows: [[type, ...], ...] } or { error: message }.
+  // No more than 4 copies of a tile in one row; other rows can repeat it.
+  function parseTiles(code) {
+    var msg = TILE_MSG[lang] || TILE_MSG.es;
+    var rows = [];
+    var parts = code.split(",");
+    for (var r = 0; r < parts.length; r++) {
+      if (!parts[r]) continue; // ",," or a comma at the end
+      var res = parseRow(parts[r]);
+      if (res.error) return res;
+      rows.push(res.list);
+    }
+    for (var i = 0; i < rows.length; i++) {
+      var counts = new Map();
+      for (var c = 0; c < rows[i].length; c++) {
+        if (rows[i][c] === BACK) continue; // the face down pile never runs out
+        var seen = (counts.get(rows[i][c]) || 0) + 1;
+        if (seen > 4) return { error: msg.many.replace("{name}", tileName(rows[i][c], false)) };
+        counts.set(rows[i][c], seen);
+      }
+    }
+    return { rows: rows };
+  }
+
+  function showMessage(text) {
+    var old = table.querySelector(".tiles-msg");
+    if (old) old.remove();
+    var box = document.createElement("p");
+    box.className = "tiles-msg";
+    box.setAttribute("role", "alert");
+    box.textContent = text;
+    table.appendChild(box);
+    // Like a tooltip, just below the field on the bar.
+    var form = document.getElementById("tiles-form");
+    if (form) {
+      var t = table.getBoundingClientRect(), r = form.getBoundingClientRect();
+      var left = Math.max(8, Math.min(r.left - t.left, t.width - box.offsetWidth - 8));
+      box.style.top = (r.bottom - t.top + 8) + "px";
+      box.style.left = left + "px";
+      box.style.setProperty("--arrow", Math.max(12, Math.min(r.left - t.left - left + 24, box.offsetWidth - 20)) + "px");
+    }
+    var input = document.getElementById("tiles-code");
+    if (input) input.setAttribute("aria-invalid", "true");
+    var close = function () {
+      box.remove();
+      if (input) input.removeAttribute("aria-invalid");
+    };
+    setTimeout(close, 8000);
+    box.addEventListener("pointerdown", close);
+    if (input) input.addEventListener("input", close, { once: true });
+  }
+
+  var codeForm = document.getElementById("tiles-form");
+  var codeInput = document.getElementById("tiles-code");
+
+  // Keep ?tiles= in the address the same as the text field, without reloading.
+  function setUrlCode(code) {
+    try {
+      var url = new URL(location.href);
+      url.searchParams.delete("tiles");
+      var search = url.search;
+      // Commas stay readable in the address (no %2C).
+      if (code) search += (search ? "&" : "?") + "tiles=" + encodeURIComponent(code).replace(/%2C/gi, ",");
+      history.replaceState(null, "", url.pathname + search + url.hash);
+    } catch (e) {}
+  }
+
+  // Empty the table and put only the tiles of the code, one row per comma group,
+  // left of the piles. A group too long for the space goes on to the next line.
+  // Returns false if the code is wrong (then the table does not change).
+  function applyCode(code) {
+    code = code.replace(/\s+/g, "");
+    var res = code ? parseTiles(code) : { rows: [] };
+    if (res.error) { showMessage(res.error); return false; }
+    select([]);
+    tiles.slice().forEach(function (t) { if (!t.home) sendHome(t); });
+    lastTouched = null;
+    var pilesLeft = W - gap - 4 * (ptw + offset * 3 + gap);
+    var perLine = Math.max(1, Math.floor((pilesLeft - 2 * gap) / tw));
+    // Lines of tiles; a small space between rows of the code.
+    var lines = [], widest = 0;
+    res.rows.forEach(function (row, r) {
+      var count = Math.ceil(row.length / perLine);
+      var len = Math.ceil(row.length / count); // lines of the same length
+      for (var k = 0; k < row.length; k += len) {
+        lines.push({ tiles: row.slice(k, k + len), space: r > 0 && k === 0 });
+        widest = Math.max(widest, Math.min(len, row.length - k));
+      }
+    });
+    if (!lines.length) return true;
+    var rowGap = Math.round(th * 0.3);
+    var height = lines.length * th + lines.filter(function (l) { return l.space; }).length * rowGap;
+    var x0 = Math.max(0, (pilesLeft - widest * tw) / 2);
+    var y = Math.max(barH + gap, barH + (H - barH - height) / 2);
+    lines.forEach(function (line) {
+      if (line.space) y += rowGap;
+      line.tiles.forEach(function (type, k) {
+        // The first free copy in the pile; the red five is the last copy, so it goes last.
+        var t = null;
+        for (var j = 0; j < tiles.length && !t; j++) {
+          if (tiles[j].type === type && tiles[j].home) t = tiles[j];
+        }
+        // Rows can repeat a tile more than 4 times in all: then an extra copy is made.
+        if (!t) t = makeExtra(type);
+        t.home = false;
+        t.x = x0 + k * tw;
+        t.y = y;
+        clamp(t);
+        t.el.style.zIndex = ++zTop;
+        place(t);
+        lastTouched = t;
+        if (t.type === BACK) ensureBack();
+      });
+      y += th;
+    });
+    return true;
+  }
+
+  if (codeForm && codeInput) {
+    codeInput.addEventListener("focus", function () { table.classList.add("show-codes"); });
+    codeInput.addEventListener("blur", function () { table.classList.remove("show-codes"); });
+    codeForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var code = codeInput.value.replace(/\s+/g, "");
+      if (applyCode(code)) {
+        codeInput.value = code;
+        setUrlCode(code);
+        codeInput.blur();
+      }
+    });
+  }
+
+  if (clear) {
+    clear.addEventListener("click", function () {
+      if (codeInput) codeInput.value = "";
+      setUrlCode("");
+    });
+  }
+
+  function placeFromUrl() {
+    var code = "";
+    try { code = new URLSearchParams(location.search).get("tiles") || ""; } catch (e) {}
+    code = code.replace(/\s+/g, "");
+    if (codeInput) codeInput.value = code;
+    if (code) applyCode(code);
+  }
+
   window.addEventListener("resize", layout);
   layout();
+  placeFromUrl();
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
 })();
 

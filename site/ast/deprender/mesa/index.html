@@ -31,6 +31,10 @@
     <span class="sizes" role="group" aria-label="Tamañu de les fiches">Tamañu
       <button type="button" data-size="s" aria-pressed="false" aria-label="Fiches pequeñes" title="Fiches pequeñes">P</button><button type="button" data-size="m" aria-pressed="true" aria-label="Fiches medianes" title="Fiches medianes">M</button><button type="button" data-size="l" aria-pressed="false" aria-label="Fiches grandes" title="Fiches grandes">G</button>
     </span>
+    <form id="tiles-form" class="code" role="search" aria-label="Códigu de fiches">
+      <input id="tiles-code" name="tiles" type="text" placeholder="123m456p789sEEw" aria-label="Códigu de fiches" title="Códigu de fiches" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="go">
+      <button type="submit">Colocar</button>
+    </form>
     <button type="button" id="fullscreen">Pantalla completa</button>
     <span class="langs"><a class="lang" href="/aprender/mesa/" hreflang="es" lang="es" aria-label="Español" title="Español"><svg class="flag" viewBox="0 0 3 2" aria-hidden="true"><rect width="3" height="2" fill="#AA151B"/><rect y="0.5" width="3" height="1" fill="#F1BF00"/></svg></a><a class="lang" href="/en/learn/table/" hreflang="en" lang="en" aria-label="English" title="English"><svg class="flag" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" fill="#012169"/><path d="M0 0L60 40M60 0L0 40" stroke="#fff" stroke-width="8"/><path d="M0 0L60 40M60 0L0 40" stroke="#C8102E" stroke-width="3"/><path d="M30 0V40M0 20H60" stroke="#fff" stroke-width="12"/><path d="M30 0V40M0 20H60" stroke="#C8102E" stroke-width="7"/></svg></a></span>
   </div>
@@ -45,6 +49,7 @@
     <li>Fai doble clic (o doble toque) nuna fiche de la mesa pa devolvela a la so pila.</li>
     <li>La fiche bocabaxo representa una fiche tapada: siempre queda otra na so pila.</li>
     <li>Caltién primida la tecla Alt pa desactivar l'imán.</li>
+    <li>Escribi un códigu de fiches nel campu de la barra (o amiesta <code>?tiles=</code> a la direición) pa colocales na mesa. Exemplu: <code>?tiles=123m456p789sEESw</code> (m caracteres, p círculos, s bambús; vientos E S W N siguíos de w; dragones W R G siguíos de d). X ye una fiche bocabaxo. Separta files con comes: <code>X123mX,456p</code>. Mentanto escribes nel campu, cada pila amuesa el so códigu.</li>
   </ul>
 </div>
 <p class="license">© 2026 Mahjong Asturias · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" target="_blank" rel="noopener noreferrer license">CC BY-NC-SA 4.0</a></p>
