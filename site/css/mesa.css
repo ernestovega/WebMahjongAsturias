@@ -173,6 +173,11 @@ html, body {
   line-height: 1.4;
   opacity: 1;
   transition: opacity 0.25s;
+  /* On a short screen (phone in landscape) the help scrolls instead of going off the top. */
+  max-height: calc(100dvh - 56px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  pointer-events: auto;
 }
 #help-text li + li { margin-top: 4px; }
 #help-btn[aria-expanded="false"] + #help-text {
@@ -269,3 +274,6 @@ html, body {
   pointer-events: none;
 }
 #table.show-codes .tile.back.home[data-code]::after { bottom: 35%; }
+#help-text ul { margin: 4px 0 0; padding-left: 18px; list-style: circle; }
+#help-text ul li + li { margin-top: 2px; }
+#help-text code { font-size: 0.95em; }

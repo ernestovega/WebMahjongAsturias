@@ -782,7 +782,8 @@
     helpBtn.addEventListener("blur", function () { setHelp(false); });
     // A press anywhere outside the help button closes the help.
     document.addEventListener("pointerdown", function (e) {
-      if (!helpBtn.contains(e.target)) setHelp(false);
+      var helpText = document.getElementById("help-text");
+      if (!helpBtn.contains(e.target) && !(helpText && helpText.contains(e.target))) setHelp(false);
     }, true);
   }
 
