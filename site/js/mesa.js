@@ -520,8 +520,8 @@
 
   function sendHome(t) {
     if (selected.indexOf(t) >= 0) select(selected.filter(function (o) { return o !== t; }));
-    if (t.type === BACK && !t.home) {
-      // The pile is always full, so this one goes away.
+    if ((t.type === BACK || t.extra) && !t.home) {
+      // The pile is always full (or this is an extra copy), so this one goes away.
       tiles.splice(tiles.indexOf(t), 1);
       t.el.remove();
       if (lastTouched === t) lastTouched = null;
@@ -774,10 +774,23 @@
     }, true);
   }
 
+  // An extra copy of a tile, beyond the 4 of the set. It goes away when sent home.
+  function makeExtra(type) {
+    var el = document.createElement("div");
+    el.className = "tile";
+    el.title = tileName(type, false);
+    el.innerHTML = '<svg viewBox="0 0 60 80" aria-hidden="true" focusable="false">' + face(type, false) + "</svg>";
+    table.appendChild(el);
+    var tile = { el: el, type: type, copy: type.copies - 1 + type.base, home: true, x: 0, y: 0, extra: true };
+    tiles.push(tile);
+    return tile;
+  }
+
   // ---------- Tiles from the URL (?tiles=) ----------
   // Suits: numbers and then m (characters), p (circles) or s (bamboo): 123m456p789s.
   // Honors: one capital letter per tile and then w (winds) or d (dragons):
   // EESWNw = 2 East, South, West, North. WRGd = white, red and green dragon.
+  // Commas start a new row: 123m,456p,EEEw. X alone is a face down tile: X123mX.
 
   var HONOR_LETTERS = { w: "ESWN", d: "RGW" }; // same order as the types: 1 2 3 4
 
@@ -803,16 +816,18 @@
     return null;
   }
 
-  // Returns { list: [type, ...] } or { error: message }.
-  function parseTiles(code) {
+  // One row of the code (no commas). Returns { list: [type, ...] } or { error: message }.
+  function parseRow(code) {
     var msg = TILE_MSG[lang] || TILE_MSG.es;
     var list = [];
-    var re = /([1-9]+)([mps])|([A-Z]+)([wd])/g;
+    var re = /([1-9]+)([mps])|([A-WYZ]+)([wd])|X/g;
     var pos = 0, m;
     while ((m = re.exec(code)) !== null) {
       if (m.index !== pos) break;
       pos = re.lastIndex;
-      if (m[1]) {
+      if (m[0] === "X") {
+        list.push(BACK);
+      } else if (m[1]) {
         for (var a = 0; a < m[1].length; a++) list.push(typeOf(m[2], +m[1].charAt(a)));
       } else {
         for (var b = 0; b < m[3].length; b++) {
@@ -823,13 +838,32 @@
       }
     }
     if (pos !== code.length) return { error: msg.bad.replace("{s}", code.slice(pos)) };
-    var counts = new Map();
-    for (var c = 0; c < list.length; c++) {
-      var seen = (counts.get(list[c]) || 0) + 1;
-      if (seen > 4) return { error: msg.many.replace("{name}", tileName(list[c], false)) };
-      counts.set(list[c], seen);
-    }
     return { list: list };
+  }
+
+  // The whole code: rows separated by commas ("123m,234m" = 2 rows).
+  // Returns { rows: [[type, ...], ...] } or { error: message }.
+  // No more than 4 copies of a tile in one row; other rows can repeat it.
+  function parseTiles(code) {
+    var msg = TILE_MSG[lang] || TILE_MSG.es;
+    var rows = [];
+    var parts = code.split(",");
+    for (var r = 0; r < parts.length; r++) {
+      if (!parts[r]) continue; // ",," or a comma at the end
+      var res = parseRow(parts[r]);
+      if (res.error) return res;
+      rows.push(res.list);
+    }
+    for (var i = 0; i < rows.length; i++) {
+      var counts = new Map();
+      for (var c = 0; c < rows[i].length; c++) {
+        if (rows[i][c] === BACK) continue; // the face down pile never runs out
+        var seen = (counts.get(rows[i][c]) || 0) + 1;
+        if (seen > 4) return { error: msg.many.replace("{name}", tileName(rows[i][c], false)) };
+        counts.set(rows[i][c], seen);
+      }
+    }
+    return { rows: rows };
   }
 
   function showMessage(text) {
@@ -851,43 +885,61 @@
   function setUrlCode(code) {
     try {
       var url = new URL(location.href);
-      if (code) url.searchParams.set("tiles", code);
-      else url.searchParams.delete("tiles");
-      history.replaceState(null, "", url.pathname + url.search + url.hash);
+      url.searchParams.delete("tiles");
+      var search = url.search;
+      // Commas stay readable in the address (no %2C).
+      if (code) search += (search ? "&" : "?") + "tiles=" + encodeURIComponent(code).replace(/%2C/gi, ",");
+      history.replaceState(null, "", url.pathname + search + url.hash);
     } catch (e) {}
   }
 
-  // Empty the table and put the tiles of the code in a row (or several,
-  // if they do not fit) left of the piles. Returns false if the code is wrong.
+  // Empty the table and put only the tiles of the code, one row per comma group,
+  // left of the piles. A group too long for the space goes on to the next line.
+  // Returns false if the code is wrong (then the table does not change).
   function applyCode(code) {
     code = code.replace(/\s+/g, "");
-    var res = code ? parseTiles(code) : { list: [] };
+    var res = code ? parseTiles(code) : { rows: [] };
     if (res.error) { showMessage(res.error); return false; }
     select([]);
     tiles.slice().forEach(function (t) { if (!t.home) sendHome(t); });
     lastTouched = null;
-    var n = res.list.length;
-    if (!n) return true;
     var pilesLeft = W - gap - 4 * (ptw + offset * 3 + gap);
-    var perRow = Math.max(1, Math.floor((pilesLeft - 2 * gap) / tw));
-    var rows = Math.ceil(n / perRow);
-    perRow = Math.ceil(n / rows); // rows of the same length
-    var x0 = Math.max(0, (pilesLeft - perRow * tw) / 2);
-    var y0 = Math.max(barH + gap, barH + (H - barH - rows * th) / 2);
-    res.list.forEach(function (type, k) {
-      // The first free copy in the pile; the red five is the last copy, so it goes last.
-      var t = null;
-      for (var j = 0; j < tiles.length && !t; j++) {
-        if (tiles[j].type === type && tiles[j].home) t = tiles[j];
+    var perLine = Math.max(1, Math.floor((pilesLeft - 2 * gap) / tw));
+    // Lines of tiles; a small space between rows of the code.
+    var lines = [], widest = 0;
+    res.rows.forEach(function (row, r) {
+      var count = Math.ceil(row.length / perLine);
+      var len = Math.ceil(row.length / count); // lines of the same length
+      for (var k = 0; k < row.length; k += len) {
+        lines.push({ tiles: row.slice(k, k + len), space: r > 0 && k === 0 });
+        widest = Math.max(widest, Math.min(len, row.length - k));
       }
-      if (!t) return;
-      t.home = false;
-      t.x = x0 + (k % perRow) * tw;
-      t.y = y0 + Math.floor(k / perRow) * th;
-      clamp(t);
-      t.el.style.zIndex = ++zTop;
-      place(t);
-      lastTouched = t;
+    });
+    if (!lines.length) return true;
+    var rowGap = Math.round(th * 0.3);
+    var height = lines.length * th + lines.filter(function (l) { return l.space; }).length * rowGap;
+    var x0 = Math.max(0, (pilesLeft - widest * tw) / 2);
+    var y = Math.max(barH + gap, barH + (H - barH - height) / 2);
+    lines.forEach(function (line) {
+      if (line.space) y += rowGap;
+      line.tiles.forEach(function (type, k) {
+        // The first free copy in the pile; the red five is the last copy, so it goes last.
+        var t = null;
+        for (var j = 0; j < tiles.length && !t; j++) {
+          if (tiles[j].type === type && tiles[j].home) t = tiles[j];
+        }
+        // Rows can repeat a tile more than 4 times in all: then an extra copy is made.
+        if (!t) t = makeExtra(type);
+        t.home = false;
+        t.x = x0 + k * tw;
+        t.y = y;
+        clamp(t);
+        t.el.style.zIndex = ++zTop;
+        place(t);
+        lastTouched = t;
+        if (t.type === BACK) ensureBack();
+      });
+      y += th;
     });
     return true;
   }
