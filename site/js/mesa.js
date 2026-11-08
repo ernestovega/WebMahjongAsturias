@@ -808,16 +808,16 @@
 
   var TILE_MSG = {
     es: {
-      bad: "No se entiende «{s}» en ?tiles=. Ejemplo: ?tiles=123m456p789sEEw",
-      many: "Hay más de 4 fichas iguales en ?tiles= ({name})."
+      bad: "No se entiende «{s}». Ejemplo: 123m456p789sEEw",
+      many: "Hay más de 4 fichas iguales en una fila ({name})."
     },
     ast: {
-      bad: "Nun s'entiende «{s}» en ?tiles=. Exemplu: ?tiles=123m456p789sEEw",
-      many: "Hai más de 4 fiches iguales en ?tiles= ({name})."
+      bad: "Nun s'entiende «{s}». Exemplu: 123m456p789sEEw",
+      many: "Hai más de 4 fiches iguales nuna fila ({name})."
     },
     en: {
-      bad: "Could not read “{s}” in ?tiles=. Example: ?tiles=123m456p789sEEw",
-      many: "More than 4 equal tiles in ?tiles= ({name})."
+      bad: "Could not read “{s}”. Example: 123m456p789sEEw",
+      many: "More than 4 equal tiles in one row ({name})."
     }
   };
 
@@ -886,8 +886,24 @@
     box.setAttribute("role", "alert");
     box.textContent = text;
     table.appendChild(box);
-    setTimeout(function () { box.remove(); }, 8000);
-    box.addEventListener("pointerdown", function () { box.remove(); });
+    // Like a tooltip, just below the field on the bar.
+    var form = document.getElementById("tiles-form");
+    if (form) {
+      var t = table.getBoundingClientRect(), r = form.getBoundingClientRect();
+      var left = Math.max(8, Math.min(r.left - t.left, t.width - box.offsetWidth - 8));
+      box.style.top = (r.bottom - t.top + 8) + "px";
+      box.style.left = left + "px";
+      box.style.setProperty("--arrow", Math.max(12, Math.min(r.left - t.left - left + 24, box.offsetWidth - 20)) + "px");
+    }
+    var input = document.getElementById("tiles-code");
+    if (input) input.setAttribute("aria-invalid", "true");
+    var close = function () {
+      box.remove();
+      if (input) input.removeAttribute("aria-invalid");
+    };
+    setTimeout(close, 8000);
+    box.addEventListener("pointerdown", close);
+    if (input) input.addEventListener("input", close, { once: true });
   }
 
   var codeForm = document.getElementById("tiles-form");

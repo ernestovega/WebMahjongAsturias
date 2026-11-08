@@ -205,18 +205,36 @@ html, body {
 .tiles-msg {
   position: absolute;
   top: 64px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 16px;
   z-index: 100003;
-  max-width: calc(100% - 32px);
+  max-width: min(360px, calc(100% - 16px));
   margin: 0;
   padding: 10px 14px;
+  border: 1px solid #e3a0aa;
   border-radius: 8px;
-  background: #fff4d6;
-  color: #5a3b00;
+  background: #fde4e7;
+  color: #8a1c2b;
   font-size: 15px;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
   cursor: pointer;
+}
+/* Small arrow that points up to the field. */
+.tiles-msg::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: var(--arrow, 24px);
+  width: 12px;
+  height: 12px;
+  background: #fde4e7;
+  border-left: 1px solid #e3a0aa;
+  border-top: 1px solid #e3a0aa;
+  transform: rotate(45deg);
+}
+#bar .code input[aria-invalid="true"] {
+  background: #fde4e7;
+  border-color: #d64555;
+  color: #8a1c2b;
 }
 #bar .code { display: flex; align-items: center; margin: 0; }
 #bar .code input {

@@ -217,3 +217,22 @@ test("las pilas muestran su código solo mientras el campo tiene el foco", async
   await expect(page.locator("#table")).not.toHaveClass(/show-codes/);
   expect(await codeOf(3)).toBe("none");
 });
+
+test("el aviso de error sale bajo el campo, en rosa y sin hablar de la ruta", async ({ page }) => {
+  await page.goto(tables.es);
+  const field = page.locator("#tiles-code");
+  await field.fill("123q");
+  await field.press("Enter");
+  const msg = page.locator(".tiles-msg");
+  await expect(msg).toBeVisible();
+  await expect(msg).not.toContainText("tiles");
+  await expect(field).toHaveAttribute("aria-invalid", "true");
+  expect(await msg.evaluate((el) => getComputedStyle(el).backgroundColor)).toBe("rgb(253, 228, 231)");
+  const f = await page.locator("#tiles-form").boundingBox();
+  const m = await msg.boundingBox();
+  expect(m.y).toBeGreaterThan(f.y + f.height - 1);
+  // Typing again hides it.
+  await field.press("Backspace");
+  await expect(msg).toHaveCount(0);
+  await expect(field).not.toHaveAttribute("aria-invalid", "true");
+});
