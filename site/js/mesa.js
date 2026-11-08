@@ -396,8 +396,20 @@
     return { x: x + t.copy * o, y: y - t.copy * o };
   }
 
+  // The code of a tile for the field on the bar (1m, Ew, Rd, X...). Flowers have none.
+  function codeOf(type) {
+    if ("mps".indexOf(type.kind) >= 0) return type.n + type.kind;
+    if (type.kind === "w") return "ESWN".charAt(type.n - 1) + "w";
+    if (type.kind === "d") return "RGW".charAt(type.n - 1) + "d";
+    if (type.kind === "x") return "X";
+    return "";
+  }
+
   function place(t) {
     var p = t.home ? homePos(t) : t;
+    // Tiles in the piles show their code while the field on the bar has the focus.
+    t.el.classList.toggle("home", t.home);
+    if (!("code" in t.el.dataset)) t.el.dataset.code = codeOf(t.type);
     // Tiles in the piles have their own size; tiles on the table use the table size.
     if (t.home) {
       t.el.style.setProperty("--tw", ptw + "px");
@@ -945,6 +957,8 @@
   }
 
   if (codeForm && codeInput) {
+    codeInput.addEventListener("focus", function () { table.classList.add("show-codes"); });
+    codeInput.addEventListener("blur", function () { table.classList.remove("show-codes"); });
     codeForm.addEventListener("submit", function (e) {
       e.preventDefault();
       var code = codeInput.value.replace(/\s+/g, "");

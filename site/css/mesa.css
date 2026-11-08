@@ -234,3 +234,20 @@ html, body {
 }
 #bar .code input:focus-visible { outline: 3px solid #e8b923; outline-offset: 0; }
 #bar .code button { border-radius: 0 6px 6px 0; }
+
+/* While typing a tile code, each pile shows its code (1m, Ew, Rd, X...). */
+#table.show-codes .tile.home[data-code]:not([data-code=""])::after {
+  content: attr(data-code);
+  position: absolute;
+  left: 50%;
+  bottom: 4%;
+  transform: translateX(-50%);
+  padding: 0 0.3em;
+  border-radius: 0.3em;
+  background: rgba(20, 36, 58, 0.88);
+  color: #fff;
+  font: 700 calc(var(--tw, 40px) * 0.32) / 1.25 ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  white-space: nowrap;
+  pointer-events: none;
+}
+#table.show-codes .tile.back.home[data-code]::after { bottom: 35%; }

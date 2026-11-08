@@ -202,3 +202,18 @@ for (const [lang, path] of Object.entries(tables)) {
     expect(await count(page)).toBe(3);
   });
 }
+
+test("las pilas muestran su código solo mientras el campo tiene el foco", async ({ page }) => {
+  await page.goto(tables.es);
+  const codeOf = (i) => page.locator("#table .tile").nth(i).evaluate((el) => getComputedStyle(el, "::after").content);
+  // nth(3) is the top 1m tile; 4 * 27 is the first East tile; .back is a face down tile.
+  expect(await codeOf(3)).toBe("none");
+  await page.locator("#tiles-code").focus();
+  await expect(page.locator("#table")).toHaveClass(/show-codes/);
+  expect(await codeOf(3)).toBe('"1m"');
+  expect(await codeOf(4 * 27)).toBe('"Ew"');
+  expect(await page.locator("#table .tile.back").first().evaluate((el) => getComputedStyle(el, "::after").content)).toBe('"X"');
+  await page.locator("#tiles-code").blur();
+  await expect(page.locator("#table")).not.toHaveClass(/show-codes/);
+  expect(await codeOf(3)).toBe("none");
+});
