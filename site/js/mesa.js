@@ -774,8 +774,154 @@
     }, true);
   }
 
+  // ---------- Tiles from the URL (?tiles=) ----------
+  // Suits: numbers and then m (characters), p (circles) or s (bamboo): 123m456p789s.
+  // Honors: one capital letter per tile and then w (winds) or d (dragons):
+  // EESWNw = 2 East, South, West, North. WRGd = white, red and green dragon.
+
+  var HONOR_LETTERS = { w: "ESWN", d: "RGW" }; // same order as the types: 1 2 3 4
+
+  var TILE_MSG = {
+    es: {
+      bad: "No se entiende «{s}» en ?tiles=. Ejemplo: ?tiles=123m456p789sEEw",
+      many: "Hay más de 4 fichas iguales en ?tiles= ({name})."
+    },
+    ast: {
+      bad: "Nun s'entiende «{s}» en ?tiles=. Exemplu: ?tiles=123m456p789sEEw",
+      many: "Hai más de 4 fiches iguales en ?tiles= ({name})."
+    },
+    en: {
+      bad: "Could not read “{s}” in ?tiles=. Example: ?tiles=123m456p789sEEw",
+      many: "More than 4 equal tiles in ?tiles= ({name})."
+    }
+  };
+
+  function typeOf(kind, n) {
+    for (var k = 0; k < types.length; k++) {
+      if (types[k].kind === kind && types[k].n === n) return types[k];
+    }
+    return null;
+  }
+
+  // Returns { list: [type, ...] } or { error: message }.
+  function parseTiles(code) {
+    var msg = TILE_MSG[lang] || TILE_MSG.es;
+    var list = [];
+    var re = /([1-9]+)([mps])|([A-Z]+)([wd])/g;
+    var pos = 0, m;
+    while ((m = re.exec(code)) !== null) {
+      if (m.index !== pos) break;
+      pos = re.lastIndex;
+      if (m[1]) {
+        for (var a = 0; a < m[1].length; a++) list.push(typeOf(m[2], +m[1].charAt(a)));
+      } else {
+        for (var b = 0; b < m[3].length; b++) {
+          var n = HONOR_LETTERS[m[4]].indexOf(m[3].charAt(b)) + 1;
+          if (!n) return { error: msg.bad.replace("{s}", m[0]) };
+          list.push(typeOf(m[4], n));
+        }
+      }
+    }
+    if (pos !== code.length) return { error: msg.bad.replace("{s}", code.slice(pos)) };
+    var counts = new Map();
+    for (var c = 0; c < list.length; c++) {
+      var seen = (counts.get(list[c]) || 0) + 1;
+      if (seen > 4) return { error: msg.many.replace("{name}", tileName(list[c], false)) };
+      counts.set(list[c], seen);
+    }
+    return { list: list };
+  }
+
+  function showMessage(text) {
+    var old = table.querySelector(".tiles-msg");
+    if (old) old.remove();
+    var box = document.createElement("p");
+    box.className = "tiles-msg";
+    box.setAttribute("role", "alert");
+    box.textContent = text;
+    table.appendChild(box);
+    setTimeout(function () { box.remove(); }, 8000);
+    box.addEventListener("pointerdown", function () { box.remove(); });
+  }
+
+  var codeForm = document.getElementById("tiles-form");
+  var codeInput = document.getElementById("tiles-code");
+
+  // Keep ?tiles= in the address the same as the text field, without reloading.
+  function setUrlCode(code) {
+    try {
+      var url = new URL(location.href);
+      if (code) url.searchParams.set("tiles", code);
+      else url.searchParams.delete("tiles");
+      history.replaceState(null, "", url.pathname + url.search + url.hash);
+    } catch (e) {}
+  }
+
+  // Empty the table and put the tiles of the code in a row (or several,
+  // if they do not fit) left of the piles. Returns false if the code is wrong.
+  function applyCode(code) {
+    code = code.replace(/\s+/g, "");
+    var res = code ? parseTiles(code) : { list: [] };
+    if (res.error) { showMessage(res.error); return false; }
+    select([]);
+    tiles.slice().forEach(function (t) { if (!t.home) sendHome(t); });
+    lastTouched = null;
+    var n = res.list.length;
+    if (!n) return true;
+    var pilesLeft = W - gap - 4 * (ptw + offset * 3 + gap);
+    var perRow = Math.max(1, Math.floor((pilesLeft - 2 * gap) / tw));
+    var rows = Math.ceil(n / perRow);
+    perRow = Math.ceil(n / rows); // rows of the same length
+    var x0 = Math.max(0, (pilesLeft - perRow * tw) / 2);
+    var y0 = Math.max(barH + gap, barH + (H - barH - rows * th) / 2);
+    res.list.forEach(function (type, k) {
+      // The first free copy in the pile; the red five is the last copy, so it goes last.
+      var t = null;
+      for (var j = 0; j < tiles.length && !t; j++) {
+        if (tiles[j].type === type && tiles[j].home) t = tiles[j];
+      }
+      if (!t) return;
+      t.home = false;
+      t.x = x0 + (k % perRow) * tw;
+      t.y = y0 + Math.floor(k / perRow) * th;
+      clamp(t);
+      t.el.style.zIndex = ++zTop;
+      place(t);
+      lastTouched = t;
+    });
+    return true;
+  }
+
+  if (codeForm && codeInput) {
+    codeForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var code = codeInput.value.replace(/\s+/g, "");
+      if (applyCode(code)) {
+        codeInput.value = code;
+        setUrlCode(code);
+        codeInput.blur();
+      }
+    });
+  }
+
+  if (clear) {
+    clear.addEventListener("click", function () {
+      if (codeInput) codeInput.value = "";
+      setUrlCode("");
+    });
+  }
+
+  function placeFromUrl() {
+    var code = "";
+    try { code = new URLSearchParams(location.search).get("tiles") || ""; } catch (e) {}
+    code = code.replace(/\s+/g, "");
+    if (codeInput) codeInput.value = code;
+    if (code) applyCode(code);
+  }
+
   window.addEventListener("resize", layout);
   layout();
+  placeFromUrl();
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
 })();
 

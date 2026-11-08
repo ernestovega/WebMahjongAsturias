@@ -201,3 +201,36 @@ html, body {
     0 4px 0 rgba(0, 0, 0, 0.35),
     0 14px 18px rgba(0, 0, 0, 0.45);
 }
+
+.tiles-msg {
+  position: absolute;
+  top: 64px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100003;
+  max-width: calc(100% - 32px);
+  margin: 0;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: #fff4d6;
+  color: #5a3b00;
+  font-size: 15px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+}
+#bar .code { display: flex; align-items: center; margin: 0; }
+#bar .code input {
+  width: 10em;
+  min-width: 0;
+  padding: 6px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-right: 0;
+  border-radius: 6px 0 0 6px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #14243a;
+  font: 15px ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  user-select: text;
+  -webkit-user-select: text;
+}
+#bar .code input:focus-visible { outline: 3px solid #e8b923; outline-offset: 0; }
+#bar .code button { border-radius: 0 6px 6px 0; }

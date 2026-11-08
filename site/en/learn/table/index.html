@@ -31,6 +31,10 @@
     <span class="sizes" role="group" aria-label="Tile size">Size
       <button type="button" data-size="s" aria-pressed="false" aria-label="Small tiles" title="Small tiles">S</button><button type="button" data-size="m" aria-pressed="true" aria-label="Medium tiles" title="Medium tiles">M</button><button type="button" data-size="l" aria-pressed="false" aria-label="Large tiles" title="Large tiles">L</button>
     </span>
+    <form id="tiles-form" class="code" role="search" aria-label="Tile code">
+      <input id="tiles-code" name="tiles" type="text" placeholder="123m456p789sEEw" aria-label="Tile code" title="Tile code" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="go">
+      <button type="submit">Place</button>
+    </form>
     <button type="button" id="fullscreen">Full screen</button>
     <span class="langs"><a class="lang" href="/aprender/mesa/" hreflang="es" lang="es" aria-label="Español" title="Español"><svg class="flag" viewBox="0 0 3 2" aria-hidden="true"><rect width="3" height="2" fill="#AA151B"/><rect y="0.5" width="3" height="1" fill="#F1BF00"/></svg></a><a class="lang" href="/ast/deprender/mesa/" hreflang="ast" lang="ast" aria-label="Asturianu" title="Asturianu"><svg class="flag" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" fill="#0B4EA2"/><polygon points="24,3 36,3 33,17 47,14 47,26 33,23 36,37 24,37 27,23 13,26 13,14 27,17" fill="#FFD500"/></svg></a></span>
   </div>
@@ -45,6 +49,7 @@
     <li>Double-click (or double-tap) a tile on the table to send it back to its pile.</li>
     <li>The face down tile stands for a hidden tile: there is always another one in its pile.</li>
     <li>Hold Alt to turn snapping off.</li>
+    <li>Type a tile code in the field on the bar (or add <code>?tiles=</code> to the address) to place those tiles on the table. Example: <code>?tiles=123m456p789sEESw</code> (m characters, p circles, s bamboo; winds E S W N followed by w; dragons W R G followed by d).</li>
   </ul>
 </div>
 <p class="license">© 2026 Mahjong Asturias · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener noreferrer license">CC BY-NC-SA 4.0</a></p>
