@@ -47,7 +47,7 @@
 
   function refresh() {
     var dark = isDark();
-    button.innerHTML = dark ? SUN : MOON;
+    button.innerHTML = dark ? MOON : SUN;
     button.setAttribute(
       "aria-label",
       dark ? button.getAttribute("data-to-light") : button.getAttribute("data-to-dark")
