@@ -1,0 +1,4 @@
+Fichas de mahjong usadas en docs/mcr-basico-es.pdf:
+Mahjong icons v1.0 by Martin Persson - http://www.martinpersson.org
+Free for personal and commercial use, on condition of providing a link to http://www.martinpersson.org
+(the PDF includes this credit and link on every page).
